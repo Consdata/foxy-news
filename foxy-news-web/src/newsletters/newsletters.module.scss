@@ -1,0 +1,24 @@
+@import "../common";
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tile {
+  padding: 10px;
+  flex-basis: 350px;
+  flex-grow: 1;
+  border-radius: 5px;
+  border: 1px solid $border-color;
+  margin: 10px;
+  &:hover {
+    box-shadow: 0 0 5px 0 $border-color;
+  }
+}
+
+.more {
+  font-style: italic;
+  font-size: 0.8em;
+}

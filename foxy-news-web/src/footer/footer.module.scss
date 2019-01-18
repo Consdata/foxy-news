@@ -1,0 +1,11 @@
+@import '../common';
+
+
+.text {
+  font-size: 0.7em;
+  text-align: center;
+  font-style: italic;
+  &, & > a {
+    color: $border-color;
+  }
+}
