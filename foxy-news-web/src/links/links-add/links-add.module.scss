@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.form {
+  flex-grow: 1;
+}
+
+.controls {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  margin-bottom: 5px;
+}

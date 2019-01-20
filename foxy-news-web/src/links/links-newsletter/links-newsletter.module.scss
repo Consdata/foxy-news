@@ -1,0 +1,17 @@
+@import "../../common";
+
+.container {
+  display: flex;
+}
+
+.newsletter {
+  flex-grow: 1;
+}
+
+.summary {
+  font-style: italic;
+}
+
+.controls {
+  margin-left: 10px;
+}

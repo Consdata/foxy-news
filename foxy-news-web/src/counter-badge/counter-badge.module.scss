@@ -1,0 +1,22 @@
+@import "../common";
+
+.badge {
+  display: flex;
+  font-size: 0.8em;
+  padding: 4px 5px;
+  border-radius: 5px;
+  background-color: $color-secondary;
+  color: white;
+}
+.label {
+}
+.counter {
+  border-radius: 50%;
+  margin-left: 5px;
+  min-width: 15px;
+  heigt: 15px;
+  text-align: center;
+  background-color: white;
+  color: $color-secondary;
+  font-weight: 500;
+}

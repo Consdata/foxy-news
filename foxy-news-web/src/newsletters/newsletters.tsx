@@ -10,49 +10,41 @@ export class Newsletters extends React.Component {
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
         <div className={styles.tile}>
           <Link to="/abc">
             <NewsletterTile/>
-            <div className={styles.more}>(więcej)</div>
           </Link>
         </div>
       </div>

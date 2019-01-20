@@ -7,18 +7,18 @@
 }
 
 .tile {
+  $margin: 10px;
+  $border: 1px;
+  $transition: 0.125s ease-in-out;
+  transition: box-shadow $transition, background-color $transition;
   padding: 10px;
   flex-basis: 350px;
   flex-grow: 1;
   border-radius: 5px;
-  border: 1px solid $border-color;
-  margin: 10px;
+  border: $border solid $color-border;
+  margin: $margin;
   &:hover {
-    box-shadow: 0 0 5px 0 $border-color;
+    box-shadow: 0 0 5px 0 $color-border;
+    background-color: #f5f6fa;
   }
-}
-
-.more {
-  font-style: italic;
-  font-size: 0.8em;
 }

@@ -1,0 +1,11 @@
+.tags {
+  display: flex;
+}
+
+.badge:not(:first-of-type) {
+  margin-left: 5px;
+}
+
+.badge:not(:last-of-type) {
+  margin-right: 5px;
+}

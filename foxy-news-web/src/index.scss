@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0 10px;
   font-family: 'Roboto';
-  color: $font-color;;
+  color: $color-font;;
   // ?
   -webkit-font-smoothing: antialiased;
   // ?
@@ -19,5 +19,9 @@ code {
 
 a, a:active, a:visited {
   text-decoration: none;
-  color: $font-color;
+  color: $color-font;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -1,0 +1,12 @@
+@import "../common";
+
+.badge {
+  display: flex;
+  font-size: 0.8em;
+  padding: 4px 5px;
+  border-radius: 5px;
+  background-color: $color-secondary;
+  color: white;
+}
+.label {
+}

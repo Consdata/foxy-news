@@ -1,9 +1,13 @@
 import React from 'react';
+import styles from './newsletter-tile-summary.module.scss';
 
 export class NewsletterTileSummary extends React.Component {
   render() {
     return (
-      <div>My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. </div>
+      <div className={styles.summary}>
+        My money's in that office, right? If she start giving me some bullshit about it
+        ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there.
+      </div>
     );
   }
 }
