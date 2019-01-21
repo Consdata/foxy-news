@@ -1,21 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import {App} from './app';
-import {applyMiddleware, combineReducers, createStore} from 'redux';
 import {Provider} from 'react-redux'
-import {AppState} from './app-state';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga'
-import {Injector} from './injector';
+import {App} from './app';
+import {AppState} from './app-state';
+import {authenticationReducer} from './authentication/authentication-reducer';
+import './index.scss';
+import {Injector} from './injector/injector';
+
+const injector = Injector.injector;
+const rootReducer = combineReducers<AppState>({
+  authentication: authenticationReducer(injector)
+});
 
 const sagaMiddleware = createSagaMiddleware();
-const rootReducer = combineReducers<AppState>({
-  authentication: Injector.injector.authenticationReducer.reducer()
-});
 const store = createStore(
   rootReducer,
   applyMiddleware(sagaMiddleware)
 );
+
+console.log(store.getState().authentication);
+store.dispatch({
+  type: 'test',
+  user: 'Grzegorz'
+});
+console.log(store.getState().authentication);
 
 ReactDOM.render(
   (
