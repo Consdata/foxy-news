@@ -22,7 +22,7 @@ export class App extends React.Component {
           <div className={styles.body}>
             <Switch>
               <Route path="/" exact component={Newsletters}/>
-              <Route path="/links" component={Links}/>
+              <Route path="/links" component={Links}/>2
               <Route path="/:newsletter" component={Newsletter}/>
             </Switch>
           </div>

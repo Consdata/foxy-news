@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './newsletter-tile-summary.module.scss';
 
-export class NewsletterTileSummary extends React.Component {
+type Props = {
+  summary: string;
+};
+
+export class NewsletterTileSummary extends React.Component<Props> {
   render() {
     return (
       <div className={styles.summary}>

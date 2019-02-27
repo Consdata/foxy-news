@@ -1,23 +1,33 @@
 import React from 'react';
-import {NewsletterTileSummary} from './newsletter-tile-summary/newsletter-tile-summary';
+import {Newsletter} from '../../app-state/app-state';
 import {NewsletterTags} from '../../newsletter-tags/newsletter-tags';
+import {NewsletterTileSummary} from './newsletter-tile-summary/newsletter-tile-summary';
 import styles from './newsletter-tile.module.scss';
 
-export class NewsletterTile extends React.Component {
+type Props = {
+  newsletter: Newsletter
+};
+
+export class NewsletterTile extends React.Component<Props> {
   render() {
+    const {newsletter} = this.props;
     return (
       <div>
         <div className={styles.title}>
-          2019.3
+          {newsletter.title}
         </div>
         <div className={styles.date}>
-          2019-01-18
+          {newsletter.date}
         </div>
         <div className={styles.summary}>
-          <NewsletterTileSummary/>
+          <NewsletterTileSummary summary={newsletter.summary} />
         </div>
         <div className={styles.tags}>
-          <NewsletterTags/>
+          <NewsletterTags tags={
+            newsletter.links
+              .map(link => link.tag)
+              .reduce((list, tag) => [...list, tag], [] as string[])
+          }/>
         </div>
       </div>
     );

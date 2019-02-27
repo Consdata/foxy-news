@@ -8,7 +8,6 @@
 # dependencies
 /node_modules
 
-# IDEs and editors
 /.idea
 .project
 .classpath
@@ -16,8 +15,7 @@
 *.launch
 .settings/
 *.sublime-workspace
-
-# IDE - VSCode
+*.iml
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

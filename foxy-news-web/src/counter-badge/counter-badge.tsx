@@ -3,7 +3,7 @@ import styles from './counter-badge.module.scss';
 
 interface Props {
   label: string;
-  counter: string;
+  counter: number;
 }
 export class CounterBadge extends React.Component<Props, {}> {
   render() {

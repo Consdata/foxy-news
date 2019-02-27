@@ -1,31 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga'
 import {App} from './app';
-import {AppState} from './app-state';
-import {authenticationReducer} from './authentication/authentication-reducer';
+import {AppStateInitial} from './app-state/app-state-initial';
 import './index.scss';
 import {Injector} from './injector/injector';
-
-const injector = Injector.injector;
-const rootReducer = combineReducers<AppState>({
-  authentication: authenticationReducer(injector)
-});
+import {multiReducer} from './redux/multi-reducer';
+import {addLinkReducer} from './store/add-link.reducer';
+import {authenticationReducer} from './store/authentication.reducer';
+import {newsletterDraftReducer} from './store/newsletter-draft.reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-  rootReducer,
-  applyMiddleware(sagaMiddleware)
+  multiReducer(
+    AppStateInitial,
+    [
+      authenticationReducer(Injector.injector),
+      newsletterDraftReducer(Injector.injector),
+      addLinkReducer(Injector.injector),
+    ]
+  ),
+  applyMiddleware(
+    sagaMiddleware,
+    store => next => action => {
+      console.log(`action [${JSON.stringify(action)}]`);
+      return next(action);
+    }
+  )
 );
-
-console.log(store.getState().authentication);
-store.dispatch({
-  type: 'test',
-  user: 'Grzegorz'
-});
-console.log(store.getState().authentication);
 
 ReactDOM.render(
   (
@@ -33,5 +37,5 @@ ReactDOM.render(
       <App/>
     </Provider>
   ),
-  document.getElementById('root')
+  document.getElementById('foxy-news')
 );
