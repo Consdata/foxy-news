@@ -1,4 +1,8 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'foxy-news-root',
