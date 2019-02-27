@@ -1,19 +1,21 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewEncapsulation
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
-  selector: 'foxy-news-root',
+  selector: 'fxy-app',
   template: `
-    <div style="text-align:center">
-      <h1>Welcome to {{ title }}!</h1>
-    </div>
+    <fxy-navbar></fxy-navbar>
+    <router-outlet></router-outlet>
   `,
-  styleUrls: ['./app.component.scss'],
+  styleUrls: [
+    'app.component.scss'
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'foxy-news-web';
+
+  constructor(db: AngularFirestore) {
+    console.log(db.createId());
+  }
+
 }

@@ -7,14 +7,7 @@
       "root": "apps/foxy-news-web/",
       "sourceRoot": "apps/foxy-news-web/src",
       "projectType": "application",
-      "prefix": "foxy-news",
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "inlineTemplate": true,
-          "style": "scss",
-          "changeDetection": "OnPush"
-        }
-      },
+      "prefix": "fxy",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -28,7 +21,10 @@
               "apps/foxy-news-web/src/favicon.ico",
               "apps/foxy-news-web/src/assets"
             ],
-            "styles": ["apps/foxy-news-web/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/foxy-news-web/src/styles.scss"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -83,7 +79,9 @@
               "apps/foxy-news-web/tsconfig.app.json",
               "apps/foxy-news-web/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -118,7 +116,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/foxy-news-web-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -137,6 +137,11 @@
     },
     "@nrwl/schematics:library": {
       "style": "scss"
+    },
+    "@nrwl/schematics:component": {
+      "style": "scss",
+      "inlineTemplate": true,
+      "changeDetection": "OnPush"
     }
   },
   "defaultProject": "foxy-news-web"

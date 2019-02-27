@@ -1,0 +1,20 @@
+:host {
+  mat-toolbar {
+    font: inherit;
+  }
+  .navbar-row {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+  }
+  fxy-app-logo {
+    margin-right: 16px;
+  }
+  fxy-navbar-item {
+    cursor: pointer;
+    outline: none;
+  }
+  .fill {
+    flex: 1 1 auto;
+  }
+}
