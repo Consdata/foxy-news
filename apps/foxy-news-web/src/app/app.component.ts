@@ -1,11 +1,12 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'fxy-app',
   template: `
     <fxy-navbar></fxy-navbar>
-    <router-outlet></router-outlet>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   `,
   styleUrls: [
     'app.component.scss'
@@ -13,9 +14,4 @@ import {AngularFirestore} from '@angular/fire/firestore';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-
-  constructor(db: AngularFirestore) {
-    console.log(db.createId());
-  }
-
 }

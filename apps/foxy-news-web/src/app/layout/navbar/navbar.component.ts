@@ -6,7 +6,9 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
     <mat-toolbar>
       <div class="navbar-row">
         <fxy-app-logo></fxy-app-logo>
-        <fxy-navbar-item [routerLink]="''">Newsletter</fxy-navbar-item>
+        <fxy-navbar-item [routerLink]="'/newsletter'">Newsletter</fxy-navbar-item>
+        <fxy-navbar-item [routerLink]="'/links'">Linki</fxy-navbar-item>
+        <fxy-navbar-item [routerLink]="'/newsletter/new'">Nowy newsletter</fxy-navbar-item>
         <div class="fill"></div>
         <fxy-navbar-user></fxy-navbar-user>
       </div>

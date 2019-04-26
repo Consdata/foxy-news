@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {auth} from 'firebase/app';
 
@@ -14,12 +14,9 @@ import {auth} from 'firebase/app';
   styleUrls: ['./navbar-user.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarUserComponent implements OnInit {
+export class NavbarUserComponent {
 
   constructor(public auth: AngularFireAuth) {
-  }
-
-  ngOnInit() {
   }
 
   onLoginClicked() {

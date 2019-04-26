@@ -1,3 +1,6 @@
-h1 {
-  color: red;
+:host {
+  display: block;
+  main {
+    padding: 0 16px;
+  }
 }

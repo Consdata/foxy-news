@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  form {
+    display: flex;
+  }
+  .title {
+    flex: 1;
+  }
+  mat-form-field {
+    margin-right: 16px;
+  }
+}
