@@ -8,11 +8,83 @@
     "nx.json": "*"
   },
   "projects": {
-    "foxy-news-web": {
-      "tags": []
+    "fxy-web": {
+      "tags": ["web"]
     },
-    "foxy-news-web-e2e": {
-      "tags": []
+    "fxy-web-e2e": {
+      "tags": ["web-e2e"]
+    },
+    "fxy-app": {
+      "tags": ["app"]
+    },
+    "fxy-app-ui": {
+      "tags": ["app-ui"]
+    },
+    "auth-feature": {
+      "tags": ["feature"]
+    },
+    "auth-api": {
+      "tags": ["api"]
+    },
+    "auth-firebase": {
+      "tags": ["infra"]
+    },
+    "auth-ui": {
+      "tags": ["ui"]
+    },
+    "link-feature": {
+      "tags": ["feature"]
+    },
+    "link-api": {
+      "tags": ["api"]
+    },
+    "link-firebase": {
+      "tags": ["infra"]
+    },
+    "link-ui": {
+      "tags": ["ui"]
+    },
+    "tag-feature": {
+      "tags": ["feature"]
+    },
+    "tag-api": {
+      "tags": ["api"]
+    },
+    "tag-firebase": {
+      "tags": ["infra"]
+    },
+    "tag-ui": {
+      "tags": ["ui"]
+    },
+    "newsletter-feature": {
+      "tags": ["feature"]
+    },
+    "newsletter-api": {
+      "tags": ["api"]
+    },
+    "newsletter-firebase": {
+      "tags": ["infra"]
+    },
+    "newsletter-ui": {
+      "tags": ["ui"]
+    },
+    "newsletter-new-feature": {
+      "tags": ["feature"]
+    },
+    "newsletter-new-api": {
+      "tags": ["api"]
+    },
+    "newsletter-new-firebase": {
+      "tags": ["infra"]
+    },
+    "newsletter-new-ui": {
+      "tags": ["ui"]
+    },
+    "firebase": {
+      "tags": ["infra-common"]
+    },
+    "fxy-ui-kit": {
+      "tags": ["ui-kit"]
     }
   }
 }

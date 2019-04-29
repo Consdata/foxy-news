@@ -89,13 +89,23 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-
     "nx-enforce-module-boundaries": [
       true,
       {
         "allow": [],
         "depConstraints": [
-          { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
+          { "sourceTag": "web", "onlyDependOnLibsWithTags": ["app"] },
+          { "sourceTag": "web-e2e", "onlyDependOnLibsWithTags": ["*"] },
+
+          { "sourceTag": "app", "onlyDependOnLibsWithTags": ["app-ui", "ui", "feature", "infra", "api", "infra-common"] },
+          { "sourceTag": "app-ui", "onlyDependOnLibsWithTags": ["ui", "api", "ui-kit"] },
+
+          { "sourceTag": "feature", "onlyDependOnLibsWithTags": ["api", "ui"] },
+          { "sourceTag": "api", "onlyDependOnLibsWithTags": ["api"] },
+          { "sourceTag": "ui", "onlyDependOnLibsWithTags": ["ui", "api", "ui-kit"] },
+          { "sourceTag": "infra", "onlyDependOnLibsWithTags": ["api", "infra-common"] },
+
+          { "sourceTag": "ui-kit", "onlyDependOnLibsWithTags": [] }
         ]
       }
     ]

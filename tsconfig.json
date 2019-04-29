@@ -14,7 +14,38 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@foxy-news/fxy-app": ["libs/fxy-app/src/index.ts"],
+      "@foxy-news/fxy-app-ui": ["libs/fxy-app-ui/src/index.ts"],
+      "@foxy-news/auth/feature": ["libs/auth/feature/src/index.ts"],
+      "@foxy-news/auth/api": ["libs/auth/api/src/index.ts"],
+      "@foxy-news/auth/firebase": ["libs/auth/firebase/src/index.ts"],
+      "@foxy-news/auth/ui": ["libs/auth/ui/src/index.ts"],
+      "@foxy-news/link/feature": ["libs/link/feature/src/index.ts"],
+      "@foxy-news/link/api": ["libs/link/api/src/index.ts"],
+      "@foxy-news/link/firebase": ["libs/link/firebase/src/index.ts"],
+      "@foxy-news/link/ui": ["libs/link/ui/src/index.ts"],
+      "@foxy-news/tag/feature": ["libs/tag/feature/src/index.ts"],
+      "@foxy-news/tag/api": ["libs/tag/api/src/index.ts"],
+      "@foxy-news/tag/firebase": ["libs/tag/firebase/src/index.ts"],
+      "@foxy-news/tag/ui": ["libs/tag/ui/src/index.ts"],
+      "@foxy-news/newsletter/feature": ["libs/newsletter/feature/src/index.ts"],
+      "@foxy-news/newsletter/api": ["libs/newsletter/api/src/index.ts"],
+      "@foxy-news/newsletter/firebase": [
+        "libs/newsletter/firebase/src/index.ts"
+      ],
+      "@foxy-news/newsletter/ui": ["libs/newsletter/ui/src/index.ts"],
+      "@foxy-news/newsletter-new/feature": [
+        "libs/newsletter-new/feature/src/index.ts"
+      ],
+      "@foxy-news/newsletter-new/api": ["libs/newsletter-new/api/src/index.ts"],
+      "@foxy-news/newsletter-new/firebase": [
+        "libs/newsletter-new/firebase/src/index.ts"
+      ],
+      "@foxy-news/newsletter-new/ui": ["libs/newsletter-new/ui/src/index.ts"],
+      "@foxy-news/firebase": ["libs/firebase/src/index.ts"],
+      "@foxy-news/fxy-ui-kit": ["libs/fxy-ui-kit/src/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true
