@@ -10,115 +10,129 @@
   "projects": {
     "fxy-web": {
       "tags": [
-        "scope:app",
         "web"
       ]
     },
     "fxy-web-e2e": {
       "tags": [
-        "scope:app",
         "web-e2e"
       ]
     },
     "fxy-app-shell": {
       "tags": [
-        "scope:shell",
+        "scope:fxy-app",
         "app"
       ]
     },
     "fxy-app-ui": {
       "tags": [
-        "scope:shell",
+        "scope:fxy-app",
         "app-ui"
       ]
     },
     "auth-feature": {
       "tags": [
         "scope:auth",
+        "type:feature",
         "feature"
       ]
     },
     "auth-api": {
       "tags": [
         "scope:auth",
+        "type:api",
         "api"
       ]
     },
     "auth-firebase": {
       "tags": [
         "scope:auth",
-        "infra"
+        "type:infrastructure",
+        "infrastructure"
       ]
     },
     "auth-ui": {
       "tags": [
         "scope:auth",
+        "type:ui",
         "ui"
       ]
     },
     "link-feature": {
       "tags": [
         "scope:link",
+        "type:feature",
         "feature"
       ]
     },
     "link-api": {
       "tags": [
         "scope:link",
+        "type:api",
         "api"
       ]
     },
     "link-firebase": {
       "tags": [
         "scope:link",
-        "infra"
+        "type:infrastructure",
+        "infrastructure"
       ]
     },
     "link-ui": {
       "tags": [
+        "scope:link",
+        "type:ui",
         "ui"
       ]
     },
     "tag-feature": {
       "tags": [
         "scope:tag",
+        "type:feature",
         "feature"
       ]
     },
     "tag-api": {
       "tags": [
         "scope:tag",
+        "type:api",
         "api"
       ]
     },
     "tag-firebase": {
       "tags": [
         "scope:tag",
-        "infra"
+        "type:infrastructure",
+        "infrastructure"
       ]
     },
     "tag-ui": {
       "tags": [
         "scope:tag",
+        "type:ui",
         "ui"
       ]
     },
     "newsletter-feature": {
       "tags": [
         "scope:newsletter",
+        "type:feature",
         "feature"
       ]
     },
     "newsletter-api": {
       "tags": [
         "scope:newsletter",
+        "type:api",
         "api"
       ]
     },
     "newsletter-firebase": {
       "tags": [
         "scope:newsletter",
-        "infra"
+        "type:infrastructure",
+        "infrastructure"
       ]
     },
     "newsletter-ui": {
@@ -130,36 +144,42 @@
     "newsletter-new-feature": {
       "tags": [
         "scope:newsletter-new",
+        "type:feature",
         "feature"
       ]
     },
     "newsletter-new-api": {
       "tags": [
         "scope:newsletter-new",
+        "type:api",
         "api"
       ]
     },
     "newsletter-new-firebase": {
       "tags": [
         "scope:newsletter-new",
-        "infra"
+        "type:infrastructure",
+        "infrastructure"
       ]
     },
     "newsletter-new-ui": {
       "tags": [
         "scope:newsletter-new",
+        "type:ui",
         "ui"
       ]
     },
     "firebase": {
       "tags": [
         "scope:shared",
-        "infra-common"
+        "type:infrastructure",
+        "infrastructure-common"
       ]
     },
     "ui-kit": {
       "tags": [
         "scope:shared",
+        "type:ui",
         "ui-kit"
       ]
     }

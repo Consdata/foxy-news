@@ -14,7 +14,6 @@ import { NewsletterFeatureModule } from '@foxy-news/newsletter/feature';
 import { NewsletterFirebaseModule } from '@foxy-news/newsletter/firebase';
 import { TagFeatureModule } from '@foxy-news/tag/feature';
 import { TagFirebaseModule } from '@foxy-news/tag/firebase';
-import { UiKitModule } from '@foxy-news/ui/kit';
 import { FxyAppRoutingModule } from './fxy-app-routing.module';
 import { FxyAppComponent } from './fxy-app.component';
 
@@ -29,8 +28,7 @@ import { FxyAppComponent } from './fxy-app.component';
     LinkFeatureModule,
     NewsletterFeatureModule,
     NewsletterNewFeatureModule,
-    MatMomentDateModule,
-    UiKitModule
+    MatMomentDateModule
   ],
   declarations: [FxyAppComponent],
   exports: [FxyAppComponent]
