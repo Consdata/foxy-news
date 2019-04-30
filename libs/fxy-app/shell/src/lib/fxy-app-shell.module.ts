@@ -5,7 +5,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {AuthFeatureModule} from '@foxy-news/auth/feature';
 import {AuthFirebaseModule} from '@foxy-news/auth/firebase';
 import {FirebaseModule} from '@foxy-news/firebase';
-import {FxyAppUiModule} from '@foxy-news/fxy-app-ui';
+import {FxyAppUiModule} from '@foxy-news/fxy-app/ui';
 import {LinkFeatureModule} from '@foxy-news/link/feature';
 import {LinkFirebaseModule} from '@foxy-news/link/firebase';
 import {NewsletterNewFeatureModule} from '@foxy-news/newsletter-new/feature';
@@ -14,6 +14,7 @@ import {NewsletterFeatureModule} from '@foxy-news/newsletter/feature';
 import {NewsletterFirebaseModule} from '@foxy-news/newsletter/firebase';
 import {TagFeatureModule} from '@foxy-news/tag/feature';
 import {TagFirebaseModule} from '@foxy-news/tag/firebase';
+import {UiKitModule} from '@foxy-news/ui/kit';
 import {FxyAppRoutingModule} from './fxy-app-routing.module';
 import {FxyAppComponent} from './fxy-app.component';
 
@@ -28,7 +29,8 @@ import {FxyAppComponent} from './fxy-app.component';
     LinkFeatureModule,
     NewsletterFeatureModule,
     NewsletterNewFeatureModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    UiKitModule
   ],
   declarations: [
     FxyAppComponent
@@ -37,13 +39,13 @@ import {FxyAppComponent} from './fxy-app.component';
     FxyAppComponent
   ]
 })
-export class FxyAppModule {
+export class FxyAppShellModule {
   static bootstrap: Array<Type<any> | any[]> = [FxyAppComponent];
 
   static forRoot(environment): ModuleWithProviders[] {
     return [
       {
-        ngModule: FxyAppModule,
+        ngModule: FxyAppShellModule,
         providers: [
           {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'},
         ]

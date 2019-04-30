@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@foxy-news/fxy-app": ["libs/fxy-app/src/index.ts"],
-      "@foxy-news/fxy-app-ui": ["libs/fxy-app-ui/src/index.ts"],
+      "@foxy-news/fxy-app/shell": ["libs/fxy-app/shell/src/index.ts"],
+      "@foxy-news/fxy-app/ui": ["libs/fxy-app/ui/src/index.ts"],
       "@foxy-news/auth/feature": ["libs/auth/feature/src/index.ts"],
       "@foxy-news/auth/api": ["libs/auth/api/src/index.ts"],
       "@foxy-news/auth/firebase": ["libs/auth/firebase/src/index.ts"],
@@ -44,7 +44,7 @@
       ],
       "@foxy-news/newsletter-new/ui": ["libs/newsletter-new/ui/src/index.ts"],
       "@foxy-news/firebase": ["libs/firebase/src/index.ts"],
-      "@foxy-news/fxy-ui-kit": ["libs/fxy-ui-kit/src/index.ts"]
+      "@foxy-news/ui/kit": ["libs/ui/kit/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

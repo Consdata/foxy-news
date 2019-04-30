@@ -1,7 +1,7 @@
 module.exports = {
-  name: 'fxy-app',
-  preset: '../../jest.config.js',
-  coverageDirectory: '../../coverage/libs/fxy-app',
+  name: 'ui-kit',
+  preset: '../../../jest.config.js',
+  coverageDirectory: '../../../coverage/libs/ui/kit',
   snapshotSerializers: [
     'jest-preset-angular/AngularSnapshotSerializer.js',
     'jest-preset-angular/HTMLCommentSerializer.js'

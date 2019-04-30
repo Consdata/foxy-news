@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { FxyUiKitModule } from './fxy-ui-kit.module';
+import { UiKitModule } from './ui-kit.module';
 
-describe('FxyUiKitModule', () => {
+describe('UiKitModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FxyUiKitModule]
+      imports: [UiKitModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(FxyUiKitModule).toBeDefined();
+    expect(UiKitModule).toBeDefined();
   });
 });

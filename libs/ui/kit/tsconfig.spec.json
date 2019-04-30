@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/libs/fxy-ui-kit",
+    "outDir": "../../../dist/out-tsc/libs/ui/kit",
     "module": "commonjs",
     "types": ["jest", "node"]
   },

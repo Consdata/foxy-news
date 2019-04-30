@@ -9,82 +9,159 @@
   },
   "projects": {
     "fxy-web": {
-      "tags": ["web"]
+      "tags": [
+        "scope:app",
+        "web"
+      ]
     },
     "fxy-web-e2e": {
-      "tags": ["web-e2e"]
+      "tags": [
+        "scope:app",
+        "web-e2e"
+      ]
     },
-    "fxy-app": {
-      "tags": ["app"]
+    "fxy-app-shell": {
+      "tags": [
+        "scope:shell",
+        "app"
+      ]
     },
     "fxy-app-ui": {
-      "tags": ["app-ui"]
+      "tags": [
+        "scope:shell",
+        "app-ui"
+      ]
     },
     "auth-feature": {
-      "tags": ["feature"]
+      "tags": [
+        "scope:auth",
+        "feature"
+      ]
     },
     "auth-api": {
-      "tags": ["api"]
+      "tags": [
+        "scope:auth",
+        "api"
+      ]
     },
     "auth-firebase": {
-      "tags": ["infra"]
+      "tags": [
+        "scope:auth",
+        "infra"
+      ]
     },
     "auth-ui": {
-      "tags": ["ui"]
+      "tags": [
+        "scope:auth",
+        "ui"
+      ]
     },
     "link-feature": {
-      "tags": ["feature"]
+      "tags": [
+        "scope:link",
+        "feature"
+      ]
     },
     "link-api": {
-      "tags": ["api"]
+      "tags": [
+        "scope:link",
+        "api"
+      ]
     },
     "link-firebase": {
-      "tags": ["infra"]
+      "tags": [
+        "scope:link",
+        "infra"
+      ]
     },
     "link-ui": {
-      "tags": ["ui"]
+      "tags": [
+        "ui"
+      ]
     },
     "tag-feature": {
-      "tags": ["feature"]
+      "tags": [
+        "scope:tag",
+        "feature"
+      ]
     },
     "tag-api": {
-      "tags": ["api"]
+      "tags": [
+        "scope:tag",
+        "api"
+      ]
     },
     "tag-firebase": {
-      "tags": ["infra"]
+      "tags": [
+        "scope:tag",
+        "infra"
+      ]
     },
     "tag-ui": {
-      "tags": ["ui"]
+      "tags": [
+        "scope:tag",
+        "ui"
+      ]
     },
     "newsletter-feature": {
-      "tags": ["feature"]
+      "tags": [
+        "scope:newsletter",
+        "feature"
+      ]
     },
     "newsletter-api": {
-      "tags": ["api"]
+      "tags": [
+        "scope:newsletter",
+        "api"
+      ]
     },
     "newsletter-firebase": {
-      "tags": ["infra"]
+      "tags": [
+        "scope:newsletter",
+        "infra"
+      ]
     },
     "newsletter-ui": {
-      "tags": ["ui"]
+      "tags": [
+        "scope:newsletter",
+        "ui"
+      ]
     },
     "newsletter-new-feature": {
-      "tags": ["feature"]
+      "tags": [
+        "scope:newsletter-new",
+        "feature"
+      ]
     },
     "newsletter-new-api": {
-      "tags": ["api"]
+      "tags": [
+        "scope:newsletter-new",
+        "api"
+      ]
     },
     "newsletter-new-firebase": {
-      "tags": ["infra"]
+      "tags": [
+        "scope:newsletter-new",
+        "infra"
+      ]
     },
     "newsletter-new-ui": {
-      "tags": ["ui"]
+      "tags": [
+        "scope:newsletter-new",
+        "ui"
+      ]
     },
     "firebase": {
-      "tags": ["infra-common"]
+      "tags": [
+        "scope:shared",
+        "infra-common"
+      ]
     },
-    "fxy-ui-kit": {
-      "tags": ["ui-kit"]
+    "ui-kit": {
+      "tags": [
+        "scope:shared",
+        "ui-kit"
+      ]
     }
   }
 }

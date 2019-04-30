@@ -119,9 +119,9 @@
         }
       }
     },
-    "fxy-app": {
-      "root": "libs/fxy-app",
-      "sourceRoot": "libs/fxy-app/src",
+    "fxy-app-shell": {
+      "root": "libs/fxy-app/shell",
+      "sourceRoot": "libs/fxy-app/shell/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -129,8 +129,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/fxy-app/tsconfig.lib.json",
-              "libs/fxy-app/tsconfig.spec.json"
+              "libs/fxy-app/shell/tsconfig.lib.json",
+              "libs/fxy-app/shell/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -138,9 +138,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/fxy-app/jest.config.js",
-            "tsConfig": "libs/fxy-app/tsconfig.spec.json",
-            "setupFile": "libs/fxy-app/src/test-setup.ts"
+            "jestConfig": "libs/fxy-app/shell/jest.config.js",
+            "tsConfig": "libs/fxy-app/shell/tsconfig.spec.json",
+            "setupFile": "libs/fxy-app/shell/src/test-setup.ts"
           }
         }
       },
@@ -151,8 +151,8 @@
       }
     },
     "fxy-app-ui": {
-      "root": "libs/fxy-app-ui",
-      "sourceRoot": "libs/fxy-app-ui/src",
+      "root": "libs/fxy-app/ui",
+      "sourceRoot": "libs/fxy-app/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -160,8 +160,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/fxy-app-ui/tsconfig.lib.json",
-              "libs/fxy-app-ui/tsconfig.spec.json"
+              "libs/fxy-app/ui/tsconfig.lib.json",
+              "libs/fxy-app/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -169,9 +169,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/fxy-app-ui/jest.config.js",
-            "tsConfig": "libs/fxy-app-ui/tsconfig.spec.json",
-            "setupFile": "libs/fxy-app-ui/src/test-setup.ts"
+            "jestConfig": "libs/fxy-app/ui/jest.config.js",
+            "tsConfig": "libs/fxy-app/ui/tsconfig.spec.json",
+            "setupFile": "libs/fxy-app/ui/src/test-setup.ts"
           }
         }
       },
@@ -832,18 +832,25 @@
         }
       }
     },
-    "fxy-ui-kit": {
-      "root": "libs/fxy-ui-kit",
-      "sourceRoot": "libs/fxy-ui-kit/src",
+    "ui-kit": {
+      "root": "libs/ui/kit",
+      "sourceRoot": "libs/ui/kit/src",
       "projectType": "library",
-      "prefix": "fxy",
+      "prefix": "foxy-news",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/ui/kit/tsconfig.lib.json",
+            "project": "libs/ui/kit/ng-package.json"
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/fxy-ui-kit/tsconfig.lib.json",
-              "libs/fxy-ui-kit/tsconfig.spec.json"
+              "libs/ui/kit/tsconfig.lib.json",
+              "libs/ui/kit/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -851,9 +858,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/fxy-ui-kit/jest.config.js",
-            "tsConfig": "libs/fxy-ui-kit/tsconfig.spec.json",
-            "setupFile": "libs/fxy-ui-kit/src/test-setup.ts"
+            "jestConfig": "libs/ui/kit/jest.config.js",
+            "tsConfig": "libs/ui/kit/tsconfig.spec.json",
+            "setupFile": "libs/ui/kit/src/test-setup.ts"
           }
         }
       },
