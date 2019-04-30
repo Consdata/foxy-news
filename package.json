@@ -26,7 +26,7 @@
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "help": "./node_modules/.bin/nx help",
-    "lib-ng": "ng generate lib --framework angular --lazy false --style scss --routing false --prefix fxy --unitTestRunner jest"
+    "lib-ng": "yarn workspace-schematic lib-ng"
   },
   "private": true,
   "dependencies": {
