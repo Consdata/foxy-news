@@ -1,14 +1,16 @@
-import {Injectable} from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
-import {Link, LinkHref, LinkService, LinkState} from '@foxy-news/link/api';
-import {Tag} from '@foxy-news/tag/api';
-import {from, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {LinkDb} from './link-db';
+import { Injectable } from '@angular/core';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection
+} from '@angular/fire/firestore';
+import { Link, LinkHref, LinkService, LinkState } from '@foxy-news/link/api';
+import { Tag } from '@foxy-news/tag/api';
+import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { LinkDb } from './link-db';
 
 @Injectable()
 export class FirebaseLinkService implements LinkService {
-
   private readonly pending: AngularFirestoreCollection<LinkDb>;
   private readonly published: AngularFirestoreCollection<LinkDb>;
   private readonly rejected: AngularFirestoreCollection<LinkDb>;
@@ -20,14 +22,15 @@ export class FirebaseLinkService implements LinkService {
   }
 
   private static queryLinks(collection: AngularFirestoreCollection<LinkDb>) {
-    return collection.snapshotChanges()
-      .pipe(
-        map(changes => changes.map(change => ({
+    return collection.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(change => ({
           ...change.payload.doc.data(),
           id: change.payload.doc.id
-        }))),
-        map(linkDbs => linkDbs.map(linkDb => FirebaseLinkService.asLink(linkDb))),
-      );
+        }))
+      ),
+      map(linkDbs => linkDbs.map(linkDb => FirebaseLinkService.asLink(linkDb)))
+    );
   }
 
   private static asDb(link: Link): LinkDb {
@@ -50,8 +53,12 @@ export class FirebaseLinkService implements LinkService {
       title: linkDb.title,
       summary: linkDb.summary,
       state: LinkState[linkDb.state],
-      tags: linkDb.tags ? linkDb.tags.map(tag => new Tag({text: tag})) : [],
-      hrefs: linkDb.hrefs ? linkDb.hrefs.map(href => new LinkHref({summary: href.summary, url: href.url})) : []
+      tags: linkDb.tags ? linkDb.tags.map(tag => new Tag({ text: tag })) : [],
+      hrefs: linkDb.hrefs
+        ? linkDb.hrefs.map(
+            href => new LinkHref({ summary: href.summary, url: href.url })
+          )
+        : []
     };
   }
 
@@ -73,15 +80,11 @@ export class FirebaseLinkService implements LinkService {
       id: link.id ? link.id : this.firestore.createId()
     };
     const dbModel = FirebaseLinkService.asDb(toAdd);
-    return from(this.pending.doc(toAdd.id).set(dbModel))
-      .pipe(
-        map(() => toAdd)
-      );
+    return from(this.pending.doc(toAdd.id).set(dbModel)).pipe(map(() => toAdd));
   }
 
   reject(link: Link) {
     this.pending.doc(link.id).delete();
-    this.rejected.doc(link.id).set(FirebaseLinkService.asDb(link))
+    this.rejected.doc(link.id).set(FirebaseLinkService.asDb(link));
   }
-
 }

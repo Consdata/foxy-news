@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'fxy-navbar-item',
@@ -8,5 +8,4 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   styleUrls: ['./navbar-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarItemComponent {
-}
+export class NavbarItemComponent {}

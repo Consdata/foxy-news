@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import {Link, LinkService} from '@foxy-news/link/api';
-import {Observable} from 'rxjs';
-import {CreateNewsletterFormData} from '../create-newsletter-form/create-newsletter-form-data';
-import {CreateNewsletterFormComponent} from '../create-newsletter-form/create-newsletter-form.component';
-import {CreateNewsletterPendingLinksComponent} from '../create-newsletter-pending-links/create-newsletter-pending-links.component';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { Link, LinkService } from '@foxy-news/link/api';
+import { Observable } from 'rxjs';
+import { CreateNewsletterFormData } from '../create-newsletter-form/create-newsletter-form-data';
+import { CreateNewsletterFormComponent } from '../create-newsletter-form/create-newsletter-form.component';
+import { CreateNewsletterPendingLinksComponent } from '../create-newsletter-pending-links/create-newsletter-pending-links.component';
 
 @Component({
   selector: 'fxy-create-newsletter',
@@ -19,9 +19,9 @@ import {CreateNewsletterPendingLinksComponent} from '../create-newsletter-pendin
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateNewsletterComponent {
-
   links$: Observable<Link[]>;
-  @ViewChild(CreateNewsletterPendingLinksComponent) links: CreateNewsletterPendingLinksComponent;
+  @ViewChild(CreateNewsletterPendingLinksComponent)
+  links: CreateNewsletterPendingLinksComponent;
   @ViewChild(CreateNewsletterFormComponent) form: CreateNewsletterFormComponent;
 
   constructor(private linkService: LinkService) {
@@ -31,5 +31,4 @@ export class CreateNewsletterComponent {
   save($event: CreateNewsletterFormData) {
     console.log($event);
   }
-
 }

@@ -1,5 +1,4 @@
 export class LinkHref {
-
   readonly summary: string;
   readonly url: string;
 
@@ -7,5 +6,4 @@ export class LinkHref {
     this.summary = data.summary || '';
     this.url = data.url || '';
   }
-
 }

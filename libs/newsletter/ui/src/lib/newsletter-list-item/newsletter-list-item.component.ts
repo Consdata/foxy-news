@@ -1,21 +1,15 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fxy-newsletter-list-item',
   template: `
-    <p>
-      newsletter-list-item works!
-    </p>
+    <p>newsletter-list-item works!</p>
   `,
   styleUrls: ['./newsletter-list-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewsletterListItemComponent implements OnInit {
+  constructor() {}
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

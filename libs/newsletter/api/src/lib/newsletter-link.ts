@@ -1,2 +1,1 @@
-export class NewsletterLink {
-}
+export class NewsletterLink {}

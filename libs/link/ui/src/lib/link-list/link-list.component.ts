@@ -1,5 +1,11 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {Link} from '@foxy-news/link/api';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
+import { Link } from '@foxy-news/link/api';
 
 @Component({
   selector: 'fxy-link-list',
@@ -8,17 +14,17 @@ import {Link} from '@foxy-news/link/api';
       <mat-card>
         <mat-card-content>
           <div class="header">
-            <div class="title">{{link.title}}</div>
+            <div class="title">{{ link.title }}</div>
             <fxy-tags [tags]="link.tags"></fxy-tags>
           </div>
-          <div class="summary" *ngIf="link.summary">
-            {{link.summary}}
-          </div>
+          <div class="summary" *ngIf="link.summary">{{ link.summary }}</div>
           <fxy-link-hrefs [hrefs]="link.hrefs"></fxy-link-hrefs>
         </mat-card-content>
         <mat-card-actions *ngIf="editable">
           <button mat-button (click)="editClicked(link)">Edytuj</button>
-          <button mat-button color="warn" (click)="removeClicked(link)">Usuń</button>
+          <button mat-button color="warn" (click)="removeClicked(link)">
+            Usuń
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -27,7 +33,6 @@ import {Link} from '@foxy-news/link/api';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinkListComponent {
-
   @Input() links: Link[];
   @Input() editable = true;
   @Output() remove = new EventEmitter<Link>();
@@ -40,5 +45,4 @@ export class LinkListComponent {
   editClicked(link: Link) {
     this.edit.emit(link);
   }
-
 }

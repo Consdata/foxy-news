@@ -1,7 +1,7 @@
-import {CdkTableModule} from '@angular/cdk/table';
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule,
@@ -11,10 +11,10 @@ import {
   MatInputModule,
   MatTableModule
 } from '@angular/material';
-import {TagUiModule} from '@foxy-news/tag/ui';
-import {CreateNewsletterFormComponent} from './create-newsletter-form/create-newsletter-form.component';
-import {CreateNewsletterPendingLinksComponent} from './create-newsletter-pending-links/create-newsletter-pending-links.component';
-import {CreateNewsletterComponent} from './create-newsletter/create-newsletter.component';
+import { TagUiModule } from '@foxy-news/tag/ui';
+import { CreateNewsletterFormComponent } from './create-newsletter-form/create-newsletter-form.component';
+import { CreateNewsletterPendingLinksComponent } from './create-newsletter-pending-links/create-newsletter-pending-links.component';
+import { CreateNewsletterComponent } from './create-newsletter/create-newsletter.component';
 
 @NgModule({
   imports: [
@@ -36,9 +36,6 @@ import {CreateNewsletterComponent} from './create-newsletter/create-newsletter.c
     CreateNewsletterFormComponent,
     CreateNewsletterPendingLinksComponent
   ],
-  exports: [
-    CreateNewsletterComponent
-  ]
+  exports: [CreateNewsletterComponent]
 })
-export class NewsletterNewUiModule {
-}
+export class NewsletterNewUiModule {}

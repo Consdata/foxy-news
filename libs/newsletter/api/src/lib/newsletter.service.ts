@@ -1,2 +1,1 @@
-export abstract class NewsletterService {
-}
+export abstract class NewsletterService {}

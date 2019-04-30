@@ -1,9 +1,8 @@
-import {Tag} from '@foxy-news/tag/api';
-import {LinkHref} from './link-href';
-import {LinkState} from './link-state';
+import { Tag } from '@foxy-news/tag/api';
+import { LinkHref } from './link-href';
+import { LinkState } from './link-state';
 
 export class Link {
-
   readonly id?: string;
   readonly title: string;
   readonly summary: string;
@@ -19,5 +18,4 @@ export class Link {
     this.hrefs = data.hrefs || [];
     this.state = data.state || LinkState.pending;
   }
-
 }

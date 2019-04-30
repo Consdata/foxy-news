@@ -1,25 +1,34 @@
-import {SelectionModel} from '@angular/cdk/collections';
-import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
-import {Link} from '@foxy-news/link/api';
+import { SelectionModel } from '@angular/cdk/collections';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
+import { Link } from '@foxy-news/link/api';
 
 @Component({
   selector: 'fxy-create-newsletter-pending-links',
   template: `
-    <!--suppress JSUnusedGlobalSymbols -->
+    <!-- suppress JSUnusedGlobalSymbols -->
     <mat-table [dataSource]="dataSource">
-
       <ng-container matColumnDef="select">
         <mat-header-cell *cdkHeaderCellDef class="column-select">
-          <mat-checkbox (change)="$event ? masterToggle() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
           </mat-checkbox>
         </mat-header-cell>
         <mat-cell *cdkCellDef="let row" class="column-select">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+          >
           </mat-checkbox>
         </mat-cell>
       </ng-container>
@@ -27,8 +36,10 @@ import {Link} from '@foxy-news/link/api';
         <mat-header-cell *cdkHeaderCellDef>Tytuł</mat-header-cell>
         <mat-cell *cdkCellDef="let row">
           <div>
-            <div>{{row.title}}</div>
-            <div><em>{{row.summary}}</em></div>
+            <div>{{ row.title }}</div>
+            <div>
+              <em>{{ row.summary }}</em>
+            </div>
           </div>
         </mat-cell>
       </ng-container>
@@ -37,7 +48,7 @@ import {Link} from '@foxy-news/link/api';
         <mat-cell *cdkCellDef="let row">
           <div>
             <div *ngFor="let href of rowLink(row).hrefs">
-              <a [href]="href.url">{{href.summary}}</a>
+              <a [href]="href.url">{{ href.summary }}</a>
             </div>
           </div>
         </mat-cell>
@@ -49,16 +60,18 @@ import {Link} from '@foxy-news/link/api';
         </mat-cell>
       </ng-container>
 
-      <mat-header-row *cdkHeaderRowDef="['select', 'title', 'links', 'tags']"></mat-header-row>
-      <mat-row *cdkRowDef="let row; columns: ['select', 'title', 'links', 'tags']"></mat-row>
-
+      <mat-header-row
+        *cdkHeaderRowDef="['select', 'title', 'links', 'tags']"
+      ></mat-header-row>
+      <mat-row
+        *cdkRowDef="let row; columns: ['select', 'title', 'links', 'tags']"
+      ></mat-row>
     </mat-table>
   `,
   styleUrls: ['./create-newsletter-pending-links.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateNewsletterPendingLinksComponent implements OnChanges {
-
   @Input() links: Link[] = [];
   selection: SelectionModel<Link>;
   dataSource: MatTableDataSource<Link>;
@@ -80,7 +93,7 @@ export class CreateNewsletterPendingLinksComponent implements OnChanges {
 
   masterToggle() {
     if (this.isAllSelected()) {
-      this.selection.clear()
+      this.selection.clear();
     } else {
       this.selection.select(...this.dataSource.data);
     }
@@ -94,5 +107,4 @@ export class CreateNewsletterPendingLinksComponent implements OnChanges {
   rowLink(row: Link): Link {
     return row;
   }
-
 }

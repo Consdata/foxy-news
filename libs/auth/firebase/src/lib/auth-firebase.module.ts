@@ -1,26 +1,21 @@
-import {CommonModule} from '@angular/common';
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {AuthenticatedGuard, AuthService} from '@foxy-news/auth/api';
-import {FirebaseModule} from '@foxy-news/firebase';
-import {FirebaseAuthService} from './firebase-auth.service';
-import {FirebaseAuthenticatedGuard} from './firebase-authenticated.guard';
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { AuthenticatedGuard, AuthService } from '@foxy-news/auth/api';
+import { FirebaseModule } from '@foxy-news/firebase';
+import { FirebaseAuthService } from './firebase-auth.service';
+import { FirebaseAuthenticatedGuard } from './firebase-authenticated.guard';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FirebaseModule
-  ]
+  imports: [CommonModule, FirebaseModule]
 })
 export class AuthFirebaseModule {
-
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: AuthFirebaseModule,
       providers: [
-        {provide: AuthService, useClass: FirebaseAuthService},
-        {provide: AuthenticatedGuard, useClass: FirebaseAuthenticatedGuard}
+        { provide: AuthService, useClass: FirebaseAuthService },
+        { provide: AuthenticatedGuard, useClass: FirebaseAuthenticatedGuard }
       ]
-    }
+    };
   }
-
 }

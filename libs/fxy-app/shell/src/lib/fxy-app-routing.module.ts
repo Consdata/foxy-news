@@ -1,24 +1,23 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {AuthenticatedGuard} from '@foxy-news/auth/api';
-import {LinksComponent} from '@foxy-news/link/ui';
-import {CreateNewsletterComponent} from '@foxy-news/newsletter-new/ui';
-import {NewsletterDetailsComponent, NewsletterListComponent} from '@foxy-news/newsletter/ui';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from '@foxy-news/auth/api';
+import { LinksComponent } from '@foxy-news/link/ui';
+import { CreateNewsletterComponent } from '@foxy-news/newsletter-new/ui';
+import {
+  NewsletterDetailsComponent,
+  NewsletterListComponent
+} from '@foxy-news/newsletter/ui';
 
 const appRoutes: Routes = [
   {
     path: 'links',
     component: LinksComponent,
-    canActivate: [
-      AuthenticatedGuard
-    ]
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: 'newsletter/new',
     component: CreateNewsletterComponent,
-    canActivate: [
-      AuthenticatedGuard
-    ]
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: 'newsletter',
@@ -37,17 +36,11 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      {
-        enableTracing: false,
-        initialNavigation: 'enabled'
-      }
-    )
+    RouterModule.forRoot(appRoutes, {
+      enableTracing: false,
+      initialNavigation: 'enabled'
+    })
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
-export class FxyAppRoutingModule {
-}
+export class FxyAppRoutingModule {}

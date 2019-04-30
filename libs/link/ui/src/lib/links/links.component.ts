@@ -1,37 +1,41 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {Link, LinkService} from '@foxy-news/link/api';
-import {Observable} from 'rxjs';
-import {LinkFilter} from '../link-filter/link-filter';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Link, LinkService } from '@foxy-news/link/api';
+import { Observable } from 'rxjs';
+import { LinkFilter } from '../link-filter/link-filter';
 
 @Component({
   selector: 'fxy-links',
   template: `
     <mat-card>
-      <button *ngIf="!addLinkVisible"
-              mat-button
-              (click)="addLinkVisible = true">
+      <button
+        *ngIf="!addLinkVisible"
+        mat-button
+        (click)="addLinkVisible = true"
+      >
         Dodaj link
       </button>
-      <fxy-link-edit *ngIf="addLinkVisible"
-                     (save)="save($event)"
-                     (resign)="resign()"
-                     [initial]="editLink">
+      <fxy-link-edit
+        *ngIf="addLinkVisible"
+        (save)="save($event)"
+        (resign)="resign()"
+        [initial]="editLink"
+      >
       </fxy-link-edit>
     </mat-card>
-    <fxy-link-filter [active]="activeFilter"
-                     (select)="changeFilter($event)">
+    <fxy-link-filter [active]="activeFilter" (select)="changeFilter($event)">
     </fxy-link-filter>
-    <fxy-link-list [editable]="isEditable()"
-                   [links]="links | async"
-                   (remove)="remove($event)"
-                   (edit)="edit($event)">
+    <fxy-link-list
+      [editable]="isEditable()"
+      [links]="links | async"
+      (remove)="remove($event)"
+      (edit)="edit($event)"
+    >
     </fxy-link-list>
   `,
   styleUrls: ['./links.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinksComponent {
-
   links: Observable<Link[]>;
   addLinkVisible = false;
   editLink: Link;
@@ -82,5 +86,4 @@ export class LinksComponent {
     this.editLink = undefined;
     this.addLinkVisible = false;
   }
-
 }

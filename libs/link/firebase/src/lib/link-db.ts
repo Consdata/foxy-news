@@ -3,6 +3,6 @@ export interface LinkDb {
   title: string;
   summary: string;
   tags: string[];
-  hrefs: { summary: string, url: string }[];
+  hrefs: { summary: string; url: string }[];
   state: string;
 }

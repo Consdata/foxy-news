@@ -1,7 +1,8 @@
 :host {
   display: block;
 
-  mat-form-field, input {
+  mat-form-field,
+  input {
     width: 100%;
   }
 
@@ -9,7 +10,8 @@
     display: flex;
   }
 
-  .left, .right {
+  .left,
+  .right {
     flex: 1;
     margin: 0 8px;
   }

@@ -1,39 +1,55 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Link} from '@foxy-news/link/api';
-import {Tag, TagService} from '@foxy-news/tag/api';
-import {Observable} from 'rxjs';
-import {LinkEditFormService} from './link-edit-form.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
+import { Link } from '@foxy-news/link/api';
+import { Tag, TagService } from '@foxy-news/tag/api';
+import { Observable } from 'rxjs';
+import { LinkEditFormService } from './link-edit-form.service';
 
 @Component({
   selector: 'fxy-link-edit',
   template: `
-    <!--suppress JSUnusedGlobalSymbols -->
+    <!-- suppress JSUnusedGlobalSymbols -->
     <form (ngSubmit)="submit()" [formGroup]="form.formGroup">
       <div class="columns">
         <div class="left">
           <mat-form-field>
-            <input matInput placeholder="Tytuł" formControlName="title">
+            <input matInput placeholder="Tytuł" formControlName="title" />
           </mat-form-field>
           <mat-form-field>
-            <textarea matInput placeholder="Opis" formControlName="summary"></textarea>
+            <textarea
+              matInput
+              placeholder="Opis"
+              formControlName="summary"
+            ></textarea>
           </mat-form-field>
           <fxy-tag-chips-with-autocomplete [control]="form.control('tags')">
           </fxy-tag-chips-with-autocomplete>
         </div>
         <div class="right" formArrayName="hrefs">
-          <div *ngFor="let _ of form.hrefs.controls; let i = index" class="href-panel">
+          <div
+            *ngFor="let _ of form.hrefs.controls; let i = index"
+            class="href-panel"
+          >
             <div [formGroupName]="'' + i">
               <mat-form-field>
-                <input matInput placeholder="Tytuł" formControlName="summary">
+                <input matInput placeholder="Tytuł" formControlName="summary" />
               </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="URL" formControlName="url">
+                <input matInput placeholder="URL" formControlName="url" />
               </mat-form-field>
             </div>
             <div>
-              <a mat-button
-                 *ngIf="form.canDeleteHref()"
-                 (click)="removeHref(i)">
+              <a
+                mat-button
+                *ngIf="form.canDeleteHref()"
+                (click)="removeHref(i)"
+              >
                 <mat-icon color="warn">remove_circle</mat-icon>
               </a>
             </div>
@@ -49,20 +65,18 @@ import {LinkEditFormService} from './link-edit-form.service';
   `,
   styleUrls: ['./link-edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    LinkEditFormService
-  ]
+  providers: [LinkEditFormService]
 })
 export class LinkEditComponent implements OnInit {
-
   @Input() initial: Link;
   @Output() save = this.form.saved;
   @Output() resign = new EventEmitter();
   tags$: Observable<Tag[]>;
 
-  constructor(public form: LinkEditFormService,
-              private tagService: TagService) {
-  }
+  constructor(
+    public form: LinkEditFormService,
+    private tagService: TagService
+  ) {}
 
   ngOnInit(): void {
     this.tags$ = this.tagService.tags();
@@ -84,5 +98,4 @@ export class LinkEditComponent implements OnInit {
   resignClicked() {
     this.resign.emit();
   }
-
 }

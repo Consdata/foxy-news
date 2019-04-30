@@ -1,28 +1,31 @@
-import {Injectable} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Link, LinkHref, LinkState} from '@foxy-news/link/api';
-import {Tag} from '@foxy-news/tag/api';
-import {Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import { Link, LinkHref, LinkState } from '@foxy-news/link/api';
+import { Tag } from '@foxy-news/tag/api';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class LinkEditFormService {
-
   formGroup: FormGroup;
   saved: Subject<Link> = new Subject<Link>();
   hrefs: FormArray;
   private initial: Link;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   static emptyHref = () => new LinkHref();
 
-  static emptyLink = () => new Link({
-    hrefs: [
-      LinkEditFormService.emptyHref()
-    ],
-    tags: []
-  });
+  static emptyLink = () =>
+    new Link({
+      hrefs: [LinkEditFormService.emptyHref()],
+      tags: []
+    });
 
   canDeleteHref(): boolean {
     return this.hrefs.controls.length > 1;
@@ -44,7 +47,7 @@ export class LinkEditFormService {
 
   submit() {
     if (this.formGroup.valid) {
-      this.saved.next(this.mapToLink(this.formGroup.value))
+      this.saved.next(this.mapToLink(this.formGroup.value));
     }
   }
 
@@ -73,8 +76,10 @@ export class LinkEditFormService {
       title: value.title,
       summary: value.summary,
       state: LinkState.pending,
-      tags: value.tags.map(tag => new Tag({text: tag})),
-      hrefs: value.hrefs.map(href => new LinkHref({summary: href.summary, url: href.url}))
+      tags: value.tags.map(tag => new Tag({ text: tag })),
+      hrefs: value.hrefs.map(
+        href => new LinkHref({ summary: href.summary, url: href.url })
+      )
     });
   }
 }

@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {LinkHref} from '@foxy-news/link/api';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { LinkHref } from '@foxy-news/link/api';
 
 @Component({
   selector: 'fxy-link-hrefs',
@@ -10,7 +10,5 @@ import {LinkHref} from '@foxy-news/link/api';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinkHrefsComponent {
-
   @Input() hrefs: LinkHref[];
-
 }
