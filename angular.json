@@ -3,27 +3,27 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "fxy-web": {
-      "root": "apps/fxy-web/",
-      "sourceRoot": "apps/fxy-web/src",
+    "foxy-news-web": {
+      "root": "apps/foxy-news-web/",
+      "sourceRoot": "apps/foxy-news-web/src",
       "projectType": "application",
       "prefix": "fxy",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/fxy-web",
-            "index": "apps/fxy-web/src/index.html",
-            "main": "apps/fxy-web/src/main.ts",
-            "polyfills": "apps/fxy-web/src/polyfills.ts",
-            "tsConfig": "apps/fxy-web/tsconfig.app.json",
+            "outputPath": "dist/apps/foxy-news-web",
+            "index": "apps/foxy-news-web/src/index.html",
+            "main": "apps/foxy-news-web/src/main.ts",
+            "polyfills": "apps/foxy-news-web/src/polyfills.ts",
+            "tsConfig": "apps/foxy-news-web/tsconfig.app.json",
             "assets": [
-              "apps/fxy-web/src/favicon.ico",
-              "apps/fxy-web/src/assets"
+              "apps/foxy-news-web/src/favicon.ico",
+              "apps/foxy-news-web/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/fxy-web/src/styles.scss"
+              "apps/foxy-news-web/src/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -32,8 +32,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/fxy-web/src/environments/environment.ts",
-                  "with": "apps/fxy-web/src/environments/environment.prod.ts"
+                  "replace": "apps/foxy-news-web/src/environments/environment.ts",
+                  "with": "apps/foxy-news-web/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -58,26 +58,26 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fxy-web:build"
+            "browserTarget": "foxy-news-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fxy-web:build:production"
+              "browserTarget": "foxy-news-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fxy-web:build"
+            "browserTarget": "foxy-news-webb:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/fxy-web/tsconfig.app.json",
-              "apps/fxy-web/tsconfig.spec.json"
+              "apps/foxy-news-web/tsconfig.app.json",
+              "apps/foxy-news-web/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -85,43 +85,43 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "apps/fxy-web/jest.config.js",
-            "tsConfig": "apps/fxy-web/tsconfig.spec.json",
-            "setupFile": "apps/fxy-web/src/test-setup.ts"
+            "jestConfig": "apps/foxy-news-web/jest.config.js",
+            "tsConfig": "apps/foxy-news-web/tsconfig.spec.json",
+            "setupFile": "apps/foxy-news-web/src/test-setup.ts"
           }
         }
       }
     },
-    "fxy-web-e2e": {
-      "root": "apps/fxy-web-e2e",
+    "foxy-news-web-e2e": {
+      "root": "apps/foxy-news-web-e2e",
       "projectType": "application",
       "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@nrwl/builders:cypress",
           "options": {
-            "cypressConfig": "apps/fxy-web-e2e/cypress.json",
-            "tsConfig": "apps/fxy-web-e2e/tsconfig.e2e.json",
-            "devServerTarget": "fxy-web:serve"
+            "cypressConfig": "apps/foxy-news-web-e2e/cypress.json",
+            "tsConfig": "apps/foxy-news-web-e2e/tsconfig.e2e.json",
+            "devServerTarget": "foxy-news-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "fxy-web:serve:production"
+              "devServerTarget": "foxy-news-web:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/fxy-web-e2e/tsconfig.e2e.json",
+            "tsConfig": "apps/foxy-news-web-e2e/tsconfig.e2e.json",
             "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "fxy-app-shell": {
-      "root": "libs/fxy-app/shell",
-      "sourceRoot": "libs/fxy-app/shell/src",
+    "foxy-news-shell": {
+      "root": "libs/foxy-news/shell",
+      "sourceRoot": "libs/foxy-news/shell/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -129,8 +129,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/fxy-app/shell/tsconfig.lib.json",
-              "libs/fxy-app/shell/tsconfig.spec.json"
+              "libs/foxy-news/shell/tsconfig.lib.json",
+              "libs/foxy-news/shell/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -138,9 +138,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/fxy-app/shell/jest.config.js",
-            "tsConfig": "libs/fxy-app/shell/tsconfig.spec.json",
-            "setupFile": "libs/fxy-app/shell/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/shell/jest.config.js",
+            "tsConfig": "libs/foxy-news/shell/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/shell/src/test-setup.ts"
           }
         }
       },
@@ -150,9 +150,9 @@
         }
       }
     },
-    "fxy-app-ui": {
-      "root": "libs/fxy-app/ui",
-      "sourceRoot": "libs/fxy-app/ui/src",
+    "foxy-news-ui": {
+      "root": "libs/foxy-news/ui",
+      "sourceRoot": "libs/foxy-news/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -160,8 +160,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/fxy-app/ui/tsconfig.lib.json",
-              "libs/fxy-app/ui/tsconfig.spec.json"
+              "libs/foxy-news/ui/tsconfig.lib.json",
+              "libs/foxy-news/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -169,9 +169,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/fxy-app/ui/jest.config.js",
-            "tsConfig": "libs/fxy-app/ui/tsconfig.spec.json",
-            "setupFile": "libs/fxy-app/ui/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/ui/jest.config.js",
+            "tsConfig": "libs/foxy-news/ui/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/ui/src/test-setup.ts"
           }
         }
       },
@@ -181,9 +181,9 @@
         }
       }
     },
-    "auth-feature": {
-      "root": "libs/auth/feature",
-      "sourceRoot": "libs/auth/feature/src",
+    "shared-auth-feature": {
+      "root": "libs/shared/auth/feature",
+      "sourceRoot": "libs/shared/auth/feature/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -191,8 +191,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/auth/feature/tsconfig.lib.json",
-              "libs/auth/feature/tsconfig.spec.json"
+              "libs/shared/auth/feature/tsconfig.lib.json",
+              "libs/shared/auth/feature/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -200,9 +200,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/auth/feature/jest.config.js",
-            "tsConfig": "libs/auth/feature/tsconfig.spec.json",
-            "setupFile": "libs/auth/feature/src/test-setup.ts"
+            "jestConfig": "libs/shared/auth/feature/jest.config.js",
+            "tsConfig": "libs/shared/auth/feature/tsconfig.spec.json",
+            "setupFile": "libs/shared/auth/feature/src/test-setup.ts"
           }
         }
       },
@@ -212,9 +212,9 @@
         }
       }
     },
-    "auth-api": {
-      "root": "libs/auth/api",
-      "sourceRoot": "libs/auth/api/src",
+    "shared-auth-api": {
+      "root": "libs/shared/auth/api",
+      "sourceRoot": "libs/shared/auth/api/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -222,8 +222,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/auth/api/tsconfig.lib.json",
-              "libs/auth/api/tsconfig.spec.json"
+              "libs/shared/auth/api/tsconfig.lib.json",
+              "libs/shared/auth/api/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -231,9 +231,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/auth/api/jest.config.js",
-            "tsConfig": "libs/auth/api/tsconfig.spec.json",
-            "setupFile": "libs/auth/api/src/test-setup.ts"
+            "jestConfig": "libs/shared/auth/api/jest.config.js",
+            "tsConfig": "libs/shared/auth/api/tsconfig.spec.json",
+            "setupFile": "libs/shared/auth/api/src/test-setup.ts"
           }
         }
       },
@@ -243,9 +243,9 @@
         }
       }
     },
-    "auth-firebase": {
-      "root": "libs/auth/firebase",
-      "sourceRoot": "libs/auth/firebase/src",
+    "shared-auth-firebase": {
+      "root": "libs/shared/auth/firebase",
+      "sourceRoot": "libs/shared/auth/firebase/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -253,8 +253,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/auth/firebase/tsconfig.lib.json",
-              "libs/auth/firebase/tsconfig.spec.json"
+              "libs/shared/auth/firebase/tsconfig.lib.json",
+              "libs/shared/auth/firebase/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -262,9 +262,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/auth/firebase/jest.config.js",
-            "tsConfig": "libs/auth/firebase/tsconfig.spec.json",
-            "setupFile": "libs/auth/firebase/src/test-setup.ts"
+            "jestConfig": "libs/shared/auth/firebase/jest.config.js",
+            "tsConfig": "libs/shared/auth/firebase/tsconfig.spec.json",
+            "setupFile": "libs/shared/auth/firebase/src/test-setup.ts"
           }
         }
       },
@@ -274,9 +274,9 @@
         }
       }
     },
-    "auth-ui": {
-      "root": "libs/auth/ui",
-      "sourceRoot": "libs/auth/ui/src",
+    "shared-auth-ui": {
+      "root": "libs/shared/auth/ui",
+      "sourceRoot": "libs/shared/auth/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -284,8 +284,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/auth/ui/tsconfig.lib.json",
-              "libs/auth/ui/tsconfig.spec.json"
+              "libs/shared/auth/ui/tsconfig.lib.json",
+              "libs/shared/auth/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -293,9 +293,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/auth/ui/jest.config.js",
-            "tsConfig": "libs/auth/ui/tsconfig.spec.json",
-            "setupFile": "libs/auth/ui/src/test-setup.ts"
+            "jestConfig": "libs/shared/auth/ui/jest.config.js",
+            "tsConfig": "libs/shared/auth/ui/tsconfig.spec.json",
+            "setupFile": "libs/shared/auth/ui/src/test-setup.ts"
           }
         }
       },
@@ -305,9 +305,9 @@
         }
       }
     },
-    "link-feature": {
-      "root": "libs/link/feature",
-      "sourceRoot": "libs/link/feature/src",
+    "foxy-news-link-feature": {
+      "root": "libs/foxy-news/link/feature",
+      "sourceRoot": "libs/foxy-news/link/feature/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -315,8 +315,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/link/feature/tsconfig.lib.json",
-              "libs/link/feature/tsconfig.spec.json"
+              "libs/foxy-news/link/feature/tsconfig.lib.json",
+              "libs/foxy-news/link/feature/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -324,9 +324,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/link/feature/jest.config.js",
-            "tsConfig": "libs/link/feature/tsconfig.spec.json",
-            "setupFile": "libs/link/feature/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/link/feature/jest.config.js",
+            "tsConfig": "libs/foxy-news/link/feature/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/link/feature/src/test-setup.ts"
           }
         }
       },
@@ -336,9 +336,9 @@
         }
       }
     },
-    "link-api": {
-      "root": "libs/link/api",
-      "sourceRoot": "libs/link/api/src",
+    "foxy-news-link-api": {
+      "root": "libs/foxy-news/link/api",
+      "sourceRoot": "libs/foxy-news/link/api/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -346,8 +346,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/link/api/tsconfig.lib.json",
-              "libs/link/api/tsconfig.spec.json"
+              "libs/foxy-news/link/api/tsconfig.lib.json",
+              "libs/foxy-news/link/api/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -355,9 +355,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/link/api/jest.config.js",
-            "tsConfig": "libs/link/api/tsconfig.spec.json",
-            "setupFile": "libs/link/api/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/link/api/jest.config.js",
+            "tsConfig": "libs/foxy-news/link/api/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/link/api/src/test-setup.ts"
           }
         }
       },
@@ -367,9 +367,9 @@
         }
       }
     },
-    "link-firebase": {
-      "root": "libs/link/firebase",
-      "sourceRoot": "libs/link/firebase/src",
+    "foxy-news-link-firebase": {
+      "root": "libs/foxy-news/link/firebase",
+      "sourceRoot": "libs/foxy-news/link/firebase/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -377,8 +377,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/link/firebase/tsconfig.lib.json",
-              "libs/link/firebase/tsconfig.spec.json"
+              "libs/foxy-news/link/firebase/tsconfig.lib.json",
+              "libs/foxy-news/link/firebase/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -386,9 +386,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/link/firebase/jest.config.js",
-            "tsConfig": "libs/link/firebase/tsconfig.spec.json",
-            "setupFile": "libs/link/firebase/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/link/firebase/jest.config.js",
+            "tsConfig": "libs/foxy-news/link/firebase/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/link/firebase/src/test-setup.ts"
           }
         }
       },
@@ -398,9 +398,9 @@
         }
       }
     },
-    "link-ui": {
-      "root": "libs/link/ui",
-      "sourceRoot": "libs/link/ui/src",
+    "foxy-news-link-ui": {
+      "root": "libs/foxy-news/link/ui",
+      "sourceRoot": "libs/foxy-news/link/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -408,8 +408,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/link/ui/tsconfig.lib.json",
-              "libs/link/ui/tsconfig.spec.json"
+              "libs/foxy-news/link/ui/tsconfig.lib.json",
+              "libs/foxy-news/link/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -417,9 +417,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/link/ui/jest.config.js",
-            "tsConfig": "libs/link/ui/tsconfig.spec.json",
-            "setupFile": "libs/link/ui/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/link/ui/jest.config.js",
+            "tsConfig": "libs/foxy-news/link/ui/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/link/ui/src/test-setup.ts"
           }
         }
       },
@@ -429,9 +429,9 @@
         }
       }
     },
-    "tag-feature": {
-      "root": "libs/tag/feature",
-      "sourceRoot": "libs/tag/feature/src",
+    "foxy-news-tag-feature": {
+      "root": "libs/foxy-news/tag/feature",
+      "sourceRoot": "libs/foxy-news/tag/feature/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -439,8 +439,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/tag/feature/tsconfig.lib.json",
-              "libs/tag/feature/tsconfig.spec.json"
+              "libs/foxy-news/tag/feature/tsconfig.lib.json",
+              "libs/foxy-news/tag/feature/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -448,9 +448,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/tag/feature/jest.config.js",
-            "tsConfig": "libs/tag/feature/tsconfig.spec.json",
-            "setupFile": "libs/tag/feature/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/tag/feature/jest.config.js",
+            "tsConfig": "libs/foxy-news/tag/feature/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/tag/feature/src/test-setup.ts"
           }
         }
       },
@@ -460,9 +460,9 @@
         }
       }
     },
-    "tag-api": {
-      "root": "libs/tag/api",
-      "sourceRoot": "libs/tag/api/src",
+    "foxy-news-tag-api": {
+      "root": "libs/foxy-news/tag/api",
+      "sourceRoot": "libs/foxy-news/tag/api/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -470,8 +470,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/tag/api/tsconfig.lib.json",
-              "libs/tag/api/tsconfig.spec.json"
+              "libs/foxy-news/tag/api/tsconfig.lib.json",
+              "libs/foxy-news/tag/api/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -479,9 +479,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/tag/api/jest.config.js",
-            "tsConfig": "libs/tag/api/tsconfig.spec.json",
-            "setupFile": "libs/tag/api/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/tag/api/jest.config.js",
+            "tsConfig": "libs/foxy-news/tag/api/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/tag/api/src/test-setup.ts"
           }
         }
       },
@@ -491,9 +491,9 @@
         }
       }
     },
-    "tag-firebase": {
-      "root": "libs/tag/firebase",
-      "sourceRoot": "libs/tag/firebase/src",
+    "foxy-news-tag-firebase": {
+      "root": "libs/foxy-news/tag/firebase",
+      "sourceRoot": "libs/foxy-news/tag/firebase/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -501,8 +501,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/tag/firebase/tsconfig.lib.json",
-              "libs/tag/firebase/tsconfig.spec.json"
+              "libs/foxy-news/tag/firebase/tsconfig.lib.json",
+              "libs/foxy-news/tag/firebase/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -510,9 +510,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/tag/firebase/jest.config.js",
-            "tsConfig": "libs/tag/firebase/tsconfig.spec.json",
-            "setupFile": "libs/tag/firebase/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/tag/firebase/jest.config.js",
+            "tsConfig": "libs/foxy-news/tag/firebase/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/tag/firebase/src/test-setup.ts"
           }
         }
       },
@@ -522,9 +522,9 @@
         }
       }
     },
-    "tag-ui": {
-      "root": "libs/tag/ui",
-      "sourceRoot": "libs/tag/ui/src",
+    "foxy-news-tag-ui": {
+      "root": "libs/foxy-news/tag/ui",
+      "sourceRoot": "libs/foxy-news/tag/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -532,8 +532,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/tag/ui/tsconfig.lib.json",
-              "libs/tag/ui/tsconfig.spec.json"
+              "libs/foxy-news/tag/ui/tsconfig.lib.json",
+              "libs/foxy-news/tag/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -541,9 +541,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/tag/ui/jest.config.js",
-            "tsConfig": "libs/tag/ui/tsconfig.spec.json",
-            "setupFile": "libs/tag/ui/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/tag/ui/jest.config.js",
+            "tsConfig": "libs/foxy-news/tag/ui/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/tag/ui/src/test-setup.ts"
           }
         }
       },
@@ -553,9 +553,9 @@
         }
       }
     },
-    "newsletter-feature": {
-      "root": "libs/newsletter/feature",
-      "sourceRoot": "libs/newsletter/feature/src",
+    "foxy-news-newsletter-feature": {
+      "root": "libs/foxy-news/newsletter/feature",
+      "sourceRoot": "libs/foxy-news/newsletter/feature/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -563,8 +563,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter/feature/tsconfig.lib.json",
-              "libs/newsletter/feature/tsconfig.spec.json"
+              "libs/foxy-news/newsletter/feature/tsconfig.lib.json",
+              "libs/foxy-news/newsletter/feature/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -572,9 +572,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter/feature/jest.config.js",
-            "tsConfig": "libs/newsletter/feature/tsconfig.spec.json",
-            "setupFile": "libs/newsletter/feature/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter/feature/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter/feature/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter/feature/src/test-setup.ts"
           }
         }
       },
@@ -584,9 +584,9 @@
         }
       }
     },
-    "newsletter-api": {
-      "root": "libs/newsletter/api",
-      "sourceRoot": "libs/newsletter/api/src",
+    "foxy-news-newsletter-api": {
+      "root": "libs/foxy-news/newsletter/api",
+      "sourceRoot": "libs/foxy-news/newsletter/api/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -594,8 +594,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter/api/tsconfig.lib.json",
-              "libs/newsletter/api/tsconfig.spec.json"
+              "libs/foxy-news/newsletter/api/tsconfig.lib.json",
+              "libs/foxy-news/newsletter/api/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -603,9 +603,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter/api/jest.config.js",
-            "tsConfig": "libs/newsletter/api/tsconfig.spec.json",
-            "setupFile": "libs/newsletter/api/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter/api/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter/api/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter/api/src/test-setup.ts"
           }
         }
       },
@@ -615,9 +615,9 @@
         }
       }
     },
-    "newsletter-firebase": {
-      "root": "libs/newsletter/firebase",
-      "sourceRoot": "libs/newsletter/firebase/src",
+    "foxy-news-newsletter-firebase": {
+      "root": "libs/foxy-news/newsletter/firebase",
+      "sourceRoot": "libs/foxy-news/newsletter/firebase/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -625,8 +625,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter/firebase/tsconfig.lib.json",
-              "libs/newsletter/firebase/tsconfig.spec.json"
+              "libs/foxy-news/newsletter/firebase/tsconfig.lib.json",
+              "libs/foxy-news/newsletter/firebase/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -634,9 +634,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter/firebase/jest.config.js",
-            "tsConfig": "libs/newsletter/firebase/tsconfig.spec.json",
-            "setupFile": "libs/newsletter/firebase/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter/firebase/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter/firebase/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter/firebase/src/test-setup.ts"
           }
         }
       },
@@ -646,9 +646,9 @@
         }
       }
     },
-    "newsletter-ui": {
-      "root": "libs/newsletter/ui",
-      "sourceRoot": "libs/newsletter/ui/src",
+    "foxy-news-newsletter-ui": {
+      "root": "libs/foxy-news/newsletter/ui",
+      "sourceRoot": "libs/foxy-news/newsletter/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -656,8 +656,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter/ui/tsconfig.lib.json",
-              "libs/newsletter/ui/tsconfig.spec.json"
+              "libs/foxy-news/newsletter/ui/tsconfig.lib.json",
+              "libs/foxy-news/newsletter/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -665,9 +665,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter/ui/jest.config.js",
-            "tsConfig": "libs/newsletter/ui/tsconfig.spec.json",
-            "setupFile": "libs/newsletter/ui/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter/ui/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter/ui/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter/ui/src/test-setup.ts"
           }
         }
       },
@@ -677,9 +677,9 @@
         }
       }
     },
-    "newsletter-new-feature": {
-      "root": "libs/newsletter-new/feature",
-      "sourceRoot": "libs/newsletter-new/feature/src",
+    "foxy-news-newsletter-new-feature": {
+      "root": "libs/foxy-news/newsletter-new/feature",
+      "sourceRoot": "libs/foxy-news/newsletter-new/feature/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -687,8 +687,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter-new/feature/tsconfig.lib.json",
-              "libs/newsletter-new/feature/tsconfig.spec.json"
+              "libs/foxy-news/newsletter-new/feature/tsconfig.lib.json",
+              "libs/foxy-news/newsletter-new/feature/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -696,9 +696,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter-new/feature/jest.config.js",
-            "tsConfig": "libs/newsletter-new/feature/tsconfig.spec.json",
-            "setupFile": "libs/newsletter-new/feature/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter-new/feature/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter-new/feature/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter-new/feature/src/test-setup.ts"
           }
         }
       },
@@ -708,9 +708,9 @@
         }
       }
     },
-    "newsletter-new-api": {
-      "root": "libs/newsletter-new/api",
-      "sourceRoot": "libs/newsletter-new/api/src",
+    "foxy-news-newsletter-new-api": {
+      "root": "libs/foxy-news/newsletter-new/api",
+      "sourceRoot": "libs/foxy-news/newsletter-new/api/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -718,8 +718,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter-new/api/tsconfig.lib.json",
-              "libs/newsletter-new/api/tsconfig.spec.json"
+              "libs/foxy-news/newsletter-new/api/tsconfig.lib.json",
+              "libs/foxy-news/newsletter-new/api/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -727,9 +727,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter-new/api/jest.config.js",
-            "tsConfig": "libs/newsletter-new/api/tsconfig.spec.json",
-            "setupFile": "libs/newsletter-new/api/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter-new/api/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter-new/api/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter-new/api/src/test-setup.ts"
           }
         }
       },
@@ -739,9 +739,9 @@
         }
       }
     },
-    "newsletter-new-firebase": {
-      "root": "libs/newsletter-new/firebase",
-      "sourceRoot": "libs/newsletter-new/firebase/src",
+    "foxy-news-newsletter-new-firebase": {
+      "root": "libs/foxy-news/newsletter-new/firebase",
+      "sourceRoot": "libs/foxy-news/newsletter-new/firebase/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -749,8 +749,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter-new/firebase/tsconfig.lib.json",
-              "libs/newsletter-new/firebase/tsconfig.spec.json"
+              "libs/foxy-news/newsletter-new/firebase/tsconfig.lib.json",
+              "libs/foxy-news/newsletter-new/firebase/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -758,9 +758,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter-new/firebase/jest.config.js",
-            "tsConfig": "libs/newsletter-new/firebase/tsconfig.spec.json",
-            "setupFile": "libs/newsletter-new/firebase/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter-new/firebase/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter-new/firebase/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter-new/firebase/src/test-setup.ts"
           }
         }
       },
@@ -770,9 +770,9 @@
         }
       }
     },
-    "newsletter-new-ui": {
-      "root": "libs/newsletter-new/ui",
-      "sourceRoot": "libs/newsletter-new/ui/src",
+    "foxy-news-newsletter-new-ui": {
+      "root": "libs/foxy-news/newsletter-new/ui",
+      "sourceRoot": "libs/foxy-news/newsletter-new/ui/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -780,8 +780,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/newsletter-new/ui/tsconfig.lib.json",
-              "libs/newsletter-new/ui/tsconfig.spec.json"
+              "libs/foxy-news/newsletter-new/ui/tsconfig.lib.json",
+              "libs/foxy-news/newsletter-new/ui/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -789,9 +789,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/newsletter-new/ui/jest.config.js",
-            "tsConfig": "libs/newsletter-new/ui/tsconfig.spec.json",
-            "setupFile": "libs/newsletter-new/ui/src/test-setup.ts"
+            "jestConfig": "libs/foxy-news/newsletter-new/ui/jest.config.js",
+            "tsConfig": "libs/foxy-news/newsletter-new/ui/tsconfig.spec.json",
+            "setupFile": "libs/foxy-news/newsletter-new/ui/src/test-setup.ts"
           }
         }
       },
@@ -801,9 +801,9 @@
         }
       }
     },
-    "firebase": {
-      "root": "libs/firebase",
-      "sourceRoot": "libs/firebase/src",
+    "shared-firebase": {
+      "root": "libs/shared/firebase",
+      "sourceRoot": "libs/shared/firebase/src",
       "projectType": "library",
       "prefix": "fxy",
       "architect": {
@@ -811,8 +811,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/firebase/tsconfig.lib.json",
-              "libs/firebase/tsconfig.spec.json"
+              "libs/shared/firebase/tsconfig.lib.json",
+              "libs/shared/firebase/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -820,9 +820,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/firebase/jest.config.js",
-            "tsConfig": "libs/firebase/tsconfig.spec.json",
-            "setupFile": "libs/firebase/src/test-setup.ts"
+            "jestConfig": "libs/shared/firebase/jest.config.js",
+            "tsConfig": "libs/shared/firebase/tsconfig.spec.json",
+            "setupFile": "libs/shared/firebase/src/test-setup.ts"
           }
         }
       },
@@ -832,25 +832,25 @@
         }
       }
     },
-    "ui-kit": {
-      "root": "libs/ui/kit",
-      "sourceRoot": "libs/ui/kit/src",
+    "shared-ui-kit": {
+      "root": "libs/shared/ui-kit",
+      "sourceRoot": "libs/shared/ui-kit/src",
       "projectType": "library",
       "prefix": "foxy-news",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "libs/ui/kit/tsconfig.lib.json",
-            "project": "libs/ui/kit/ng-package.json"
+            "tsConfig": "libs/shared/ui-kit/tsconfig.lib.json",
+            "project": "libs/shared/ui-kit/ng-package.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/ui/kit/tsconfig.lib.json",
-              "libs/ui/kit/tsconfig.spec.json"
+              "libs/shared/ui-kit/tsconfig.lib.json",
+              "libs/shared/ui-kit/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -858,9 +858,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "libs/ui/kit/jest.config.js",
-            "tsConfig": "libs/ui/kit/tsconfig.spec.json",
-            "setupFile": "libs/ui/kit/src/test-setup.ts"
+            "jestConfig": "libs/shared/ui-kit/jest.config.js",
+            "tsConfig": "libs/shared/ui-kit/tsconfig.spec.json",
+            "setupFile": "libs/shared/ui-kit/src/test-setup.ts"
           }
         }
       },
@@ -891,5 +891,5 @@
       "changeDetection": "OnPush"
     }
   },
-  "defaultProject": "fxy-web"
+  "defaultProject": "foxy-news-web"
 }
