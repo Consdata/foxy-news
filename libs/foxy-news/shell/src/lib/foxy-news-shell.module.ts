@@ -14,6 +14,7 @@ import { FoxyNewsUiModule } from '@foxy-news/foxy-news/ui';
 import { AuthFeatureModule } from '@foxy-news/shared/auth/feature';
 import { AuthFirebaseModule } from '@foxy-news/shared/auth/firebase';
 import { FirebaseModule } from '@foxy-news/shared/firebase';
+import { SharedLibParentModule } from '@foxy-news/shared/lib-parent';
 import { FoxyNewsRoutingModule } from './foxy-news-routing.module';
 import { FxyAppComponent } from './fxy-app.component';
 
@@ -28,7 +29,8 @@ import { FxyAppComponent } from './fxy-app.component';
     LinkFeatureModule,
     NewsletterFeatureModule,
     NewsletterNewFeatureModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    SharedLibParentModule
   ],
   declarations: [FxyAppComponent],
   exports: [FxyAppComponent]

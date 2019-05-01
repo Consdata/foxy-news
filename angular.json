@@ -869,6 +869,82 @@
           "styleext": "scss"
         }
       }
+    },
+    "shared-lib-nested": {
+      "root": "libs/shared/lib-nested",
+      "sourceRoot": "libs/shared/lib-nested/src",
+      "projectType": "library",
+      "prefix": "foxy-news",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/shared/lib-nested/tsconfig.lib.json",
+            "project": "libs/shared/lib-nested/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/lib-nested/tsconfig.lib.json",
+              "libs/shared/lib-nested/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/shared/lib-nested/jest.config.js",
+            "tsConfig": "libs/shared/lib-nested/tsconfig.spec.json",
+            "setupFile": "libs/shared/lib-nested/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-lib-parent": {
+      "root": "libs/shared/lib-parent",
+      "sourceRoot": "libs/shared/lib-parent/src",
+      "projectType": "library",
+      "prefix": "foxy-news",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/shared/lib-parent/tsconfig.lib.json",
+            "project": "libs/shared/lib-parent/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/lib-parent/tsconfig.lib.json",
+              "libs/shared/lib-parent/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/shared/lib-parent/jest.config.js",
+            "tsConfig": "libs/shared/lib-parent/tsconfig.spec.json",
+            "setupFile": "libs/shared/lib-parent/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -17,34 +17,58 @@
     "paths": {
       "@foxy-news/foxy-news/shell": ["libs/foxy-news/shell/src/index.ts"],
       "@foxy-news/foxy-news/ui": ["libs/foxy-news/ui/src/index.ts"],
-      "@foxy-news/shared/auth/feature": ["libs/shared/auth/feature/src/index.ts"],
+      "@foxy-news/shared/auth/feature": [
+        "libs/shared/auth/feature/src/index.ts"
+      ],
       "@foxy-news/shared/auth/api": ["libs/shared/auth/api/src/index.ts"],
-      "@foxy-news/shared/auth/firebase": ["libs/shared/auth/firebase/src/index.ts"],
+      "@foxy-news/shared/auth/firebase": [
+        "libs/shared/auth/firebase/src/index.ts"
+      ],
       "@foxy-news/shared/auth/ui": ["libs/shared/auth/ui/src/index.ts"],
-      "@foxy-news/foxy-news/link/feature": ["libs/foxy-news/link/feature/src/index.ts"],
+      "@foxy-news/foxy-news/link/feature": [
+        "libs/foxy-news/link/feature/src/index.ts"
+      ],
       "@foxy-news/foxy-news/link/api": ["libs/foxy-news/link/api/src/index.ts"],
-      "@foxy-news/foxy-news/link/firebase": ["libs/foxy-news/link/firebase/src/index.ts"],
+      "@foxy-news/foxy-news/link/firebase": [
+        "libs/foxy-news/link/firebase/src/index.ts"
+      ],
       "@foxy-news/foxy-news/link/ui": ["libs/foxy-news/link/ui/src/index.ts"],
-      "@foxy-news/foxy-news/tag/feature": ["libs/foxy-news/tag/feature/src/index.ts"],
+      "@foxy-news/foxy-news/tag/feature": [
+        "libs/foxy-news/tag/feature/src/index.ts"
+      ],
       "@foxy-news/foxy-news/tag/api": ["libs/foxy-news/tag/api/src/index.ts"],
-      "@foxy-news/foxy-news/tag/firebase": ["libs/foxy-news/tag/firebase/src/index.ts"],
+      "@foxy-news/foxy-news/tag/firebase": [
+        "libs/foxy-news/tag/firebase/src/index.ts"
+      ],
       "@foxy-news/foxy-news/tag/ui": ["libs/foxy-news/tag/ui/src/index.ts"],
-      "@foxy-news/foxy-news/newsletter/feature": ["libs/foxy-news/newsletter/feature/src/index.ts"],
-      "@foxy-news/foxy-news/newsletter/api": ["libs/foxy-news/newsletter/api/src/index.ts"],
+      "@foxy-news/foxy-news/newsletter/feature": [
+        "libs/foxy-news/newsletter/feature/src/index.ts"
+      ],
+      "@foxy-news/foxy-news/newsletter/api": [
+        "libs/foxy-news/newsletter/api/src/index.ts"
+      ],
       "@foxy-news/foxy-news/newsletter/firebase": [
         "libs/foxy-news/newsletter/firebase/src/index.ts"
       ],
-      "@foxy-news/foxy-news/newsletter/ui": ["libs/foxy-news/newsletter/ui/src/index.ts"],
+      "@foxy-news/foxy-news/newsletter/ui": [
+        "libs/foxy-news/newsletter/ui/src/index.ts"
+      ],
       "@foxy-news/foxy-news/newsletter-new/feature": [
         "libs/foxy-news/newsletter-new/feature/src/index.ts"
       ],
-      "@foxy-news/foxy-news/newsletter-new/api": ["libs/foxy-news/newsletter-new/api/src/index.ts"],
+      "@foxy-news/foxy-news/newsletter-new/api": [
+        "libs/foxy-news/newsletter-new/api/src/index.ts"
+      ],
       "@foxy-news/foxy-news/newsletter-new/firebase": [
         "libs/foxy-news/newsletter-new/firebase/src/index.ts"
       ],
-      "@foxy-news/foxy-news/newsletter-new/ui": ["libs/foxy-news/newsletter-new/ui/src/index.ts"],
+      "@foxy-news/foxy-news/newsletter-new/ui": [
+        "libs/foxy-news/newsletter-new/ui/src/index.ts"
+      ],
       "@foxy-news/shared/firebase": ["libs/shared/firebase/src/index.ts"],
-      "@foxy-news/shared/ui-kit": ["libs/shared/ui-kit/src/index.ts"]
+      "@foxy-news/shared/ui-kit": ["libs/shared/ui-kit/src/index.ts"],
+      "@foxy-news/shared/lib-nested": ["dist/libs/shared/lib-nested"],
+      "@foxy-news/shared/lib-parent": ["dist/libs/shared/lib-parent"]
     }
   },
   "angularCompilerOptions": {
