@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  	function isAuthentiacted(req) {
+    	return request.auth != null
+    }
+    function authEmail(req) {
+    	return request.auth.token.email
+    }
+
+    function getUser( user) {
+    	return get(/databases/$(database)/documents/user/$(user)).data
+    }
+
+    // default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
