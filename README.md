@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Consdata/foxy-news.svg?branch=master)](https://travis-ci.org/Consdata/foxy-news)
+
 ### Setting up slack signing secret and bot token
 
 ```
