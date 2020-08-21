@@ -9,8 +9,8 @@ export async function onAddLinkSubmission(pubsub: import('@google-cloud/pubsub')
         data: {
             category: interaction['view'].state.values.category.category.selected_option.value,
             summary: interaction['view'].state.values.summary.summary.value,
-            link: interaction['view'].state.values.link.value,
-            description: interaction['view'].state.values.description.value,
+            link: interaction['view'].state.values.link.link.value,
+            description: interaction['view'].state.values.description.description.value,
         }
     };
     await pubsub.topic('pending-links').publish(Buffer.from(JSON.stringify(message)));
