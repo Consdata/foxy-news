@@ -59,8 +59,6 @@ const LoginView = ({history}: ConnectedProps<typeof connector> & RouteComponentP
             })
         );
     };
-    const redirectToRestore = () => history.push('/reset');
-    const redirectToRegister = () => history.push('/register');
     return <FullScreenCentered>
         {!state.authenticating && <Form onSubmit={ev => submit(ev)}>
             <FullWithTextField label="Email"
@@ -79,8 +77,6 @@ const LoginView = ({history}: ConnectedProps<typeof connector> & RouteComponentP
             {state.message && <ErrorMessage>{state.message}</ErrorMessage>}
             <Spacer/>
             <Button color="primary" type="submit">Login</Button>
-            <SecondaryLink color="textSecondary" onClick={redirectToRestore}>Reset password</SecondaryLink>
-            <SecondaryLink color="textSecondary" onClick={redirectToRegister}>Create account</SecondaryLink>
         </Form>}
         {state.authenticating && <CircularProgress size={50}/>}
     </FullScreenCentered>;
