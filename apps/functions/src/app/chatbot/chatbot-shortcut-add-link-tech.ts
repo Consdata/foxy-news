@@ -22,30 +22,15 @@ export async function onShortcutAddLinkTech(slackHttpHeaders: any, interactionRe
                             action_id: 'category',
                             placeholder: {type: 'plain_text', text: 'Choose category', emoji: true},
                             options: [
-                                {
-                                    text: {
-                                        type: 'plain_text',
-                                        text: 'frontend',
-                                        emoji: true
-                                    },
-                                    value: 'frontend'
-                                },
-                                {
-                                    text: {
-                                        type: 'plain_text',
-                                        text: 'devops',
-                                        emoji: true
-                                    },
-                                    value: 'devops'
-                                },
-                                {
-                                    text: {
-                                        type: 'plain_text',
-                                        text: 'misc',
-                                        emoji: true
-                                    },
-                                    value: 'misc'
-                                }
+                                { value: 'devops', text: { type: 'plain_text', text: 'DevOps', emoji: true } },
+                                { value: 'frontend', text: { type: 'plain_text', text: 'Frontend', emoji: true } },
+                                { value: 'webdev', text: { type: 'plain_text', text: 'WebDev', emoji: true } },
+                                { value: 'cloud', text: { type: 'plain_text', text: 'Cloud', emoji: true } },
+                                { value: 'crafsmanship', text: { type: 'plain_text', text: 'Crsafsmanship', emoji: true } },
+                                { value: 'uiux', text: { type: 'plain_text', text: 'Ui/Ux', emoji: true } },
+                                { value: 'linux', text: { type: 'plain_text', text: 'Linux', emoji: true } },
+                                { value: 'security', text: { type: 'plain_text', text: 'Security', emoji: true } },
+                                { value: 'misc', text: { type: 'plain_text', text: 'Miscellaneous', emoji: true } },
                             ]
                         },
                         label: {
