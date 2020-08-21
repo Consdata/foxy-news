@@ -1,0 +1,17 @@
+import {ChatbotInteraction} from './chatbot-interaction';
+import {PendingLink} from './pending-link';
+
+export async function onAddLinkSubmission(pubsub: import('@google-cloud/pubsub').PubSub, interaction: ChatbotInteraction) {
+    const message: PendingLink = {
+        team: interaction.team.domain,
+        user: interaction.user.username,
+        field: 'tech',
+        data: {
+            category: interaction['view'].state.values.category.category.selected_option.value,
+            summary: interaction['view'].state.values.summary.summary.value,
+            link: interaction['view'].state.values.link.value,
+            description: interaction['view'].state.values.description.value,
+        }
+    };
+    await pubsub.topic('pending-links').publish(Buffer.from(JSON.stringify(message)));
+}
