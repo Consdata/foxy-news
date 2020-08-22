@@ -1,5 +1,5 @@
 export interface SlackInteractionRequest<CallbackIds> {
-    type: 'shortcut' | 'view_submission' | string;
+    type: 'shortcut' | 'view_submission' | 'block_actions' | string;
     token: string;
     action_ts: string;
     team: {

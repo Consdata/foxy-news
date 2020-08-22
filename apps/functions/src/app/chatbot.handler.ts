@@ -1,13 +1,25 @@
 import {onAddLinkSubmission} from './chatbot/add-link-submission';
 import {ChatbotInteraction} from './chatbot/chatbot-interaction';
 import {onShortcutAddLinkTech} from './chatbot/chatbot-shortcut-add-link-tech';
-import {PendingLink} from './chatbot/pending-link';
+import {FieldMap} from './chatbot/field-map';
+import {onVote} from './chatbot/on-vote';
 import {checkSlackSignature} from './slack/check-slack-signature';
 
 export const chatbotHandler = (
     functions: import('firebase-functions').FunctionBuilder,
     config: import('firebase-functions').config.Config,
     pubsub: import('@google-cloud/pubsub').PubSub) => {
+
+    const fieldMap: FieldMap = {
+        channelByField: {
+            tech: config.foxy['channel-tech'],
+            biz: config.foxy['channel-biz'],
+        },
+        fieldByChannel: {
+            [config.foxy['channel-tech']]: 'tech',
+            [config.foxy['channel-biz']]: 'biz'
+        }
+    };
 
     return functions.https.onRequest(async (request, response) => {
         if (request.method !== 'POST') {
@@ -29,6 +41,8 @@ export const chatbotHandler = (
             await onShortcutAddLinkTech(slackHttpHeaders, interaction);
         } else if (interaction.type === 'view_submission') {
             await onAddLinkSubmission(pubsub, interaction);
+        } else if (interaction.type === 'block_actions') {
+            await onVote(pubsub, interaction, fieldMap);
         } else {
             console.log(JSON.stringify(interaction));
         }
