@@ -1,4 +1,5 @@
 import * as nodeFetch from 'node-fetch';
+import {Link} from './link';
 import {linkSlackPost} from './link-slack-post';
 import {SlackPostMessageResult} from './slack/slack-post-message-result';
 
@@ -18,6 +19,7 @@ export const sendLinkToChannelHandler = (
 );
 
 async function postMessage(config: import('firebase-functions').config.Config, document: FirebaseFirestore.QueryDocumentSnapshot<FirebaseFirestore.DocumentData>): Promise<SlackPostMessageResult> {
+    const link = document.data() as Link;
     const httpResult = await nodeFetch(`https://slack.com/api/chat.postMessage`, {
         method: 'POST',
         headers: {
@@ -25,13 +27,14 @@ async function postMessage(config: import('firebase-functions').config.Config, d
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            channel: `#${config.foxy['channel-' + document.data().field]}`,
+            channel: `#${config.foxy['channel-' + link.field]}`,
             'blocks': linkSlackPost(
-                document.data().data.summary,
-                document.data().data.description,
-                document.data().data.link,
-                document.data().data.category,
-                ''
+                link.data.summary,
+                link.data.description,
+                link.data.link,
+                link.data.category,
+                '',
+                link.data.author
             )
         })
     });

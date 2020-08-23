@@ -7,5 +7,6 @@ export interface PendingLink {
         summary: string;
         link: string;
         description: string;
+        author: string;
     }
 }

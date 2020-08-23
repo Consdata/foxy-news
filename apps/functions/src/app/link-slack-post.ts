@@ -1,4 +1,4 @@
-export function linkSlackPost(title: string, description: string, link: string, category: string, date: string, votes: number = 0) {
+export function linkSlackPost(title: string, description: string, link: string, category: string, date: string, author: string, votes: number = 0) {
     return [
         {
             'type': 'section',
@@ -41,6 +41,10 @@ export function linkSlackPost(title: string, description: string, link: string, 
                 {
                     'type': 'mrkdwn',
                     'text': `*Category*: ${category}`
+                },
+                {
+                    'type': 'mrkdwn',
+                    'text': `*Author*: ${author}`
                 },
                 // {
                 //     "type": "mrkdwn",

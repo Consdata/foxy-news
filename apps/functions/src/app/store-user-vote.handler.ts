@@ -1,6 +1,4 @@
-import * as nodeFetch from 'node-fetch';
 import {PendingVote} from './chatbot/pending-vote';
-import {linkSlackPost} from './link-slack-post';
 
 export const storeUserVoteHandler = (
     functions: import('firebase-functions').FunctionBuilder,
@@ -11,7 +9,7 @@ export const storeUserVoteHandler = (
             const vote: PendingVote = JSON.parse(Buffer.from(topicMessage.data, 'base64').toString());
             const firestore = firebase.firestore();
             const linkCollection = firestore.collection(`team/${vote.team}/field/${vote.field}/link`);
-            const updated = await firestore.runTransaction(async trn => {
+            await firestore.runTransaction(async trn => {
                 const links = await trn.get(linkCollection.where('message.timestamp', '==', vote.message).limit(1));
                 const link = links.docs[0];
                 const linkData = link.data();
@@ -28,31 +26,8 @@ export const storeUserVoteHandler = (
                         ...linkData,
                         ...update
                     };
-                } else {
-                    return undefined;
                 }
             });
-            if (updated) {
-                await nodeFetch(`https://slack.com/api/chat.update`, {
-                    method: 'POST',
-                    headers: {
-                        Authorization: `Bearer ${config.slack.bottoken}`,
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        channel: updated['message'].channel,
-                        ts: vote.message,
-                        'blocks': linkSlackPost(
-                            updated['data'].summary,
-                            updated['data'].description,
-                            updated['data'].link,
-                            updated['data'].category,
-                            '',
-                            updated.votes
-                        )
-                    })
-                });
-            }
         }
     );
 }

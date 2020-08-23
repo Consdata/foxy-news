@@ -6,6 +6,7 @@ import {addLinkHandler} from './app/add-link.handler';
 import {chatbotHandler} from './app/chatbot.handler';
 import {sendLinkToChannelHandler} from './app/send-link-to-channel.handler';
 import {storeUserVoteHandler} from './app/store-user-vote.handler';
+import {updateChannelOnLinkChangeHandler} from './app/update-channel-on-link-change.handler';
 
 firebase.initializeApp();
 
@@ -21,3 +22,4 @@ export const addLink = addLinkHandler(functionBuilder(), functions.config(), fir
 export const chatbot = chatbotHandler(functionBuilder().runWith({memory: '512MB'}), functions.config(), new PubSub());
 export const sendLinkToChannel = sendLinkToChannelHandler(functionBuilder(), functions.config());
 export const storeUserVote = storeUserVoteHandler(functionBuilder(), functions.config(), firebase);
+export const updateChannelOnLinkChange = updateChannelOnLinkChangeHandler(functionBuilder(), functions.config());
