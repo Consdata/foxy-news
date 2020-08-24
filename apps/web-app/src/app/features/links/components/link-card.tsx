@@ -1,6 +1,12 @@
-import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader, Typography} from '@material-ui/core';
-import React from 'react';
+import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader, MenuItem, Select, TextField as MaterialTextField, Typography} from '@material-ui/core';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import SaveOutlinedIcon from '@material-ui/icons/SaveOutlined';
+import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
+import ClearIcon from '@material-ui/icons/Clear';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {Category} from '../state/category';
 import {Link} from '../state/link';
 
 const StyledCard = styled(Card)`
@@ -16,19 +22,58 @@ const Spacer = styled.div`
   flex: 1;
 `;
 
-export const LinkCard = ({link}: { link: Link }) => <StyledCard>
-  <CardHeader title={link.data.summary} subheader={`by ${link.data.author}`}/>
-  <CardContent>
-    <Typography variant="body2" gutterBottom>
-      {link.data.description}
-    </Typography>
-    <Typography variant="caption">
-      <a href={link.data.link} target="_blank">{link.data.link}</a>
-    </Typography>
-  </CardContent>
-  <CardActions>
-    <Button size="small" color="primary">edit</Button>
-    <Spacer/>
-    <Button size="small" color="secondary">remove</Button>
-  </CardActions>
-</StyledCard>;
+const TextField = styled(MaterialTextField)`
+  margin-bottom: 8px;
+`;
+
+export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}: { link: Link, categories: Category[], onDelete: () => void, onAddToNewsletter: () => void, onEdit: (link: Link) => void }) => {
+  const [edit, setEdit] = useState(false);
+  const [summary, setSummary] = useState(link.data.summary);
+  const [href, setLink] = useState(link.data.link);
+  const [description, setDescription] = useState(link.data.description);
+  const [category, setCategory] = useState(link.data.category);
+  const onSave = () => {
+    onEdit({
+      ...link,
+      data: {
+        ...link.data,
+        summary,
+        link: href,
+        description,
+        category
+      }
+    });
+    setEdit(false);
+  };
+  return <StyledCard>
+    {!edit && <>
+      <CardHeader title={link.data.summary} subheader={`by ${link.data.author}`}/>
+      <CardContent>
+        <Typography variant="body2" gutterBottom>
+          {link.data.description}
+        </Typography>
+        <Typography variant="caption">
+          <a href={link.data.link} target="_blank">{link.data.link}</a>
+        </Typography>
+      </CardContent>
+    </>}
+    {edit && <>
+      <CardContent>
+        <TextField fullWidth value={summary} onChange={event => setSummary(event.target.value)}/>
+        <TextField fullWidth value={href} onChange={event => setLink(event.target.value)}/>
+        <TextField fullWidth multiline value={description} onChange={event => setDescription(event.target.value)}/>
+        <Select fullWidth value={category} onChange={change => setCategory(change.target.value as string)}>
+          {categories.map(category => <MenuItem key={category.key} value={category.key}>{category.label}</MenuItem>)}
+        </Select>
+      </CardContent>
+    </>}
+    <CardActions>
+      {!edit && <Button size="small" color="primary" onClick={onAddToNewsletter}><ShoppingBasketOutlinedIcon/></Button>}
+      <Spacer/>
+      {!edit && <Button size="small" color="primary" onClick={() => setEdit(true)}><EditOutlinedIcon/></Button>}
+      {edit && <Button size="small" color="primary" onClick={onSave}><SaveOutlinedIcon/></Button>}
+      {edit && <Button size="small" color="secondary" onClick={() => setEdit(false)}><ClearIcon/></Button>}
+      {!edit && <Button size="small" color="secondary" onClick={onDelete}><DeleteOutlineOutlinedIcon/></Button>}
+    </CardActions>
+  </StyledCard>;
+};

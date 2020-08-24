@@ -21,7 +21,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-export const LinkCards = ({links, categories}: { links: Link[], categories: Category[] }) => {
+export const LinkCards = ({links, categories, onDelete, onAddToNewsletter, onEdit}: { links: Link[], categories: Category[], onDelete: (link: Link) => void, onAddToNewsletter: (link: Link) => void, onEdit: (link: Link) => void }) => {
   const [filter, setFilter] = useState('all');
   return <Container>
     <Categories value={filter} onChange={change => setFilter(change.target.value as string)}>
@@ -29,7 +29,7 @@ export const LinkCards = ({links, categories}: { links: Link[], categories: Cate
       {categories.map(category => <MenuItem key={category.key} value={category.key}>{category.label}</MenuItem>)}
     </Categories>
     {links && links.filter(link => filter === 'all' || link.data.category === filter).map(link => <LinkRow key={link.id}>
-      <LinkCard link={link}/>
+      <LinkCard link={link} categories={categories} onDelete={() => onDelete(link)} onAddToNewsletter={() => onAddToNewsletter(link)} onEdit={link => onEdit(link)} />
     </LinkRow>)}
   </Container>;
 };
