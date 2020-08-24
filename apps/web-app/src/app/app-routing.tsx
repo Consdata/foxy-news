@@ -1,9 +1,10 @@
 import React from 'react';
-import {Route, Switch} from 'react-router';
+import {Redirect, Route, Switch} from 'react-router';
+import {PendingLinks} from './features/links/components/pendnig-links';
 import {PageNotFound} from './features/page-not-found/page-not-found';
 
 export const AppRouting = () => <Switch>
-  {/*<Redirect exact from="/" to="/links"/>*/}
-  {/*<Route exact path="/links" component={Links}/>*/}
-  <Route component={PageNotFound}/>
+    <Redirect exact from="/" to="/links"/>
+    <Route exact path="/links" component={PendingLinks}/>
+    <Route component={PageNotFound}/>
 </Switch>;
