@@ -36,7 +36,7 @@ async function postMessage(config: import('firebase-functions').config.Config, d
         '',
         link.data.author,
         0,
-        Object.keys(link.userVotes)
+        Object.keys(link.userVotes ?? {})
       )
     })
   });

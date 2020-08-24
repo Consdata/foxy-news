@@ -25,7 +25,7 @@ export const updateChannelOnLinkChangeHandler = (
           '',
           linkData.data.author,
           linkData.votes,
-          Object.keys(linkData.userVotes)
+          Object.keys(linkData.userVotes ?? {})
         )
       })
     });
