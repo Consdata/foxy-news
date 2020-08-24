@@ -17,19 +17,18 @@ const Spacer = styled.div`
 `;
 
 export const LinkCard = ({link}: { link: Link }) => <StyledCard>
-  <CardHeader title={link.data.summary} subheader={`by ${link.data.author}`} />
+  <CardHeader title={link.data.summary} subheader={`by ${link.data.author}`}/>
   <CardContent>
     <Typography variant="body2" gutterBottom>
       {link.data.description}
     </Typography>
     <Typography variant="caption">
-      {link.data.link}
+      <a href={link.data.link} target="_blank">{link.data.link}</a>
     </Typography>
   </CardContent>
   <CardActions>
-    <Button size="small">edit</Button>
-    <Button size="small" color="primary">mark as used</Button>
-    <Spacer />
+    <Button size="small" color="primary">edit</Button>
+    <Spacer/>
     <Button size="small" color="secondary">remove</Button>
   </CardActions>
 </StyledCard>;

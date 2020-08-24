@@ -3,6 +3,7 @@ import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
+import {categories} from '../state/category';
 import {LinkCards} from './link-cards';
 
 const View = styled(Box)`
@@ -15,7 +16,7 @@ const View = styled(Box)`
 
 const PendingLinksView = ({links}: ViewProps) => <View>
   {!links && <CircularProgress size={50}/>}
-  {links && <LinkCards links={links}/>}
+  {links && <LinkCards links={links} categories={categories}/>}
 </View>;
 
 interface ViewProps extends ConnectedProps<typeof connector> {
