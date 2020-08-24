@@ -17,7 +17,7 @@ export const storeUserVoteHandler = (
                     const update = {
                         votes: (linkData.votes ?? 0) + 1,
                         userVotes: {
-                            ...linkData.votes,
+                            ...linkData.userVotes,
                             [vote.user]: true
                         }
                     };
