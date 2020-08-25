@@ -1,5 +1,5 @@
 import {Link} from '../link';
 
-export interface AddToNewsletterPayload {
+export interface AddLinkToNewsletterPayload {
   link: Link;
 }

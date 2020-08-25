@@ -3,7 +3,7 @@ import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
-import {addToNewsletterAction} from '../state/add-to-newsletter/add-to-newsletter.action';
+import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';
 import {categories} from '../state/category';
 import {deleteLinkAction} from '../state/delete-link/delete-link.action';
 import {editLinkAction} from '../state/edit-link/edit-link.action';
@@ -32,7 +32,7 @@ const connector = connect(
   }),
   {
     onDelete: (link: Link) => deleteLinkAction({link}),
-    onAddToNewsletter: (link: Link) => addToNewsletterAction({link}),
+    onAddToNewsletter: (link: Link) => addLinkToNewsletterAction({link}),
     onEdit: (link: Link) => editLinkAction({link}),
   }
 );

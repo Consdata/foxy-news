@@ -47,7 +47,7 @@ export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}
   };
   return <StyledCard>
     {!edit && <>
-      <CardHeader title={link.data.summary} subheader={`by ${link.data.author}`}/>
+      <CardHeader title={link.data.summary} subheader={`by ${link.data.author} in ${link.data.category}`}/>
       <CardContent>
         <Typography variant="body2" gutterBottom>
           {link.data.description}

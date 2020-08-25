@@ -11,7 +11,10 @@ service cloud.firestore {
     function getUser( user) {
     	return get(/databases/$(database)/documents/user/$(user)).data
     }
-
+    // allow read and write pending links
+    match /team/{team}/field/{field}/link/{link} {
+    	allow read, write: if isAuthentiacted(request);
+    }
     // default deny
     match /{document=**} {
       allow read, write: if false;
