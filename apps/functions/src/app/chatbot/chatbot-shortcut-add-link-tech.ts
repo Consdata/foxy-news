@@ -15,7 +15,7 @@ export async function onShortcutAddLinkTech(slackHttpHeaders: any, interactionRe
           {key: 'frontend', label: 'Frontend'},
           {key: 'webdev', label: 'WebDev'},
           {key: 'cloud', label: 'Cloud'},
-          {key: 'crafsmanship', label: 'Crsafsmanship'},
+          {key: 'craftsmanship', label: 'Craftsmanship'},
           {key: 'uiux', label: 'Ui/Ux'},
           {key: 'linux', label: 'Linux'},
           {key: 'security', label: 'Security'},

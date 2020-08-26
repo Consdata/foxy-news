@@ -8,7 +8,7 @@ export const categories: Category[] = [
   {key: 'frontend', label: 'Frontend'},
   {key: 'webdev', label: 'WebDev'},
   {key: 'cloud', label: 'Cloud'},
-  {key: 'crafsmanship', label: 'Crsafsmanship'},
+  {key: 'craftsmanship', label: 'Crsafsmanship'},
   {key: 'uiux', label: 'Ui/Ux'},
   {key: 'linux', label: 'Linux'},
   {key: 'security', label: 'Security'},
