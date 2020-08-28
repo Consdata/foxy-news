@@ -1,9 +1,20 @@
-import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader, MenuItem, Select, TextField as MaterialTextField, Typography} from '@material-ui/core';
+import {
+  Button as MaterialButton,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  MenuItem,
+  Select,
+  TextField as MaterialTextField,
+  Typography
+} from '@material-ui/core';
+import ClearIcon from '@material-ui/icons/Clear';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import SaveOutlinedIcon from '@material-ui/icons/SaveOutlined';
 import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
-import ClearIcon from '@material-ui/icons/Clear';
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Category} from '../state/category';
@@ -24,6 +35,12 @@ const Spacer = styled.div`
 
 const TextField = styled(MaterialTextField)`
   margin-bottom: 8px;
+`;
+
+const FavBar = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
 `;
 
 export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}: { link: Link, categories: Category[], onDelete: () => void, onAddToNewsletter: () => void, onEdit: (link: Link) => void }) => {
@@ -49,12 +66,19 @@ export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}
     {!edit && <>
       <CardHeader title={link.data.summary} subheader={`by ${link.data.author} in ${link.data.category}`}/>
       <CardContent>
-        <Typography variant="body2" gutterBottom>
-          {link.data.description}
-        </Typography>
-        <Typography variant="caption">
-          <a href={link.data.link} target="_blank">{link.data.link}</a>
-        </Typography>
+        <div>
+          <Typography variant="body2">
+            {link.data.description}
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="caption">
+            <a href={link.data.link} target="_blank">{link.data.link}</a>
+          </Typography>
+        </div>
+        <FavBar>
+          <FavoriteBorderOutlinedIcon color="secondary" /> &nbsp; {link.votes}
+        </FavBar>
       </CardContent>
     </>}
     {edit && <>

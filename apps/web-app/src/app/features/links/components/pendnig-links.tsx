@@ -20,7 +20,8 @@ const View = styled(Box)`
 
 const PendingLinksView = ({links, onDelete, onAddToNewsletter, onEdit}: ViewProps) => <View>
   {!links && <CircularProgress size={50}/>}
-  {links && <LinkCards links={links} categories={categories} onDelete={onDelete} onAddToNewsletter={onAddToNewsletter} onEdit={onEdit} />}
+  {links && <LinkCards links={links} categories={categories} onDelete={onDelete} onAddToNewsletter={onAddToNewsletter}
+                       onEdit={onEdit}/>}
 </View>;
 
 interface ViewProps extends ConnectedProps<typeof connector> {
@@ -28,7 +29,7 @@ interface ViewProps extends ConnectedProps<typeof connector> {
 
 const connector = connect(
   (state: AppState) => ({
-    links: state.links.links
+    links: sorted(state.links.links)
   }),
   {
     onDelete: (link: Link) => deleteLinkAction({link}),
@@ -38,3 +39,13 @@ const connector = connect(
 );
 
 export const PendingLinks = connector(PendingLinksView);
+
+function sorted(array: Link[]): Link[] {
+  if (array) {
+    const sorted = [...array];
+    sorted.sort((a, b) => b.votes - a.votes);
+    return sorted;
+  } else {
+    return array;
+  }
+}
