@@ -1,4 +1,4 @@
-import {Typography} from '@material-ui/core';
+import {Tooltip, Typography} from '@material-ui/core';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import React from 'react';
 import styled from 'styled-components';
@@ -8,6 +8,7 @@ const FavBar = styled.div`
   display: flex;
   align-items: center;
   margin-top: 8px;
+  width: 60px;
 `;
 
 export const LinkSummary = ({link}: { link: Link }) => <>
@@ -21,7 +22,11 @@ export const LinkSummary = ({link}: { link: Link }) => <>
       <a href={link.data.link} target="_blank">{link.data.link}</a>
     </Typography>
   </div>
-  <FavBar>
-    <FavoriteBorderOutlinedIcon color="secondary"/> &nbsp; {link.votes}
-  </FavBar>
+  <div>
+    <Tooltip title={Object.keys(link.userVotes).join(', ')}>
+      <FavBar>
+        <FavoriteBorderOutlinedIcon color="secondary"/> &nbsp; {link.votes}
+      </FavBar>
+    </Tooltip>
+  </div>
 </>;

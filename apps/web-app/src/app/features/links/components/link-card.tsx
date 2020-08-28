@@ -28,7 +28,6 @@ export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}
   const [edit, setEdit] = useState(false);
   const [edited, setEdited] = useState(link);
   const onSave = () => {
-    console.log(edited);
     onEdit(edited);
     setEdit(false);
   };
