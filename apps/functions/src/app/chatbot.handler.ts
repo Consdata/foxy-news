@@ -31,7 +31,9 @@ export const chatbotHandler = (
             request.headers['x-slack-request-timestamp'],
             request.rawBody.toString()
         )) {
+            console.error('Invalid slack signing');
             response.status(401).send('Invalid slack signing');
+            return;
         }
 
         const slackHttpHeaders = {Authorization: `Bearer ${config.slack.bottoken}`, 'Content-type': 'application/json'};
