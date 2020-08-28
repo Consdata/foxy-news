@@ -11,7 +11,21 @@ const FavBar = styled.div`
   width: 60px;
 `;
 
+const Header = styled.div`
+  margin-bottom: 16px;
+`;
+
 export const LinkSummary = ({link}: { link: Link }) => <>
+  <Header>
+    <div>
+      <Typography variant={'h6'}>{link.data.summary}</Typography>
+    </div>
+    <div>
+      <Typography variant={'caption'}>
+        by {link.data.author} in {link.data.category}
+      </Typography>
+    </div>
+  </Header>
   <div>
     <Typography variant="body2">
       {link.data.description}

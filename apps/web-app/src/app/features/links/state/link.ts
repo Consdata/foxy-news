@@ -18,4 +18,5 @@ export interface Link {
     [login: string]: boolean
   };
   votes: number;
+  newsletter: string | 'current';
 }

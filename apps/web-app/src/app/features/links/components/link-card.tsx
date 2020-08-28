@@ -1,8 +1,9 @@
-import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader} from '@material-ui/core';
+import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader, Tooltip} from '@material-ui/core';
 import ClearIcon from '@material-ui/icons/Clear';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import SaveOutlinedIcon from '@material-ui/icons/SaveOutlined';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
 import React, {useState} from 'react';
 import styled from 'styled-components';
@@ -24,7 +25,7 @@ const Spacer = styled.div`
   flex: 1;
 `;
 
-export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}: { link: Link, categories: Category[], onDelete: () => void, onAddToNewsletter: () => void, onEdit: (link: Link) => void }) => {
+export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}: { link: Link, categories: Category[], onDelete: () => void, onAddToNewsletter: (newsletter: string) => void, onEdit: (link: Link) => void }) => {
   const [edit, setEdit] = useState(false);
   const [edited, setEdited] = useState(link);
   const onSave = () => {
@@ -37,7 +38,6 @@ export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}
   };
   return <StyledCard>
     {!edit && <>
-      <CardHeader title={link.data.summary} subheader={`by ${link.data.author} in ${link.data.category}`}/>
       <CardContent>
         <LinkSummary link={link}/>
       </CardContent>
@@ -48,7 +48,14 @@ export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}
       </CardContent>
     </>}
     <CardActions>
-      {!edit && <Button size="small" color="primary" onClick={onAddToNewsletter}><ShoppingBasketOutlinedIcon/></Button>}
+      {!edit && <>
+        {!!link.newsletter && <Button size="small" color="primary" onClick={() => onAddToNewsletter('')}>
+          <Tooltip title={`${link.newsletter}`}><ShoppingBasketIcon/></Tooltip>
+        </Button>}
+        {!link.newsletter && <Button size="small" color="primary" onClick={() => onAddToNewsletter('current')}>
+          <ShoppingBasketOutlinedIcon/>
+        </Button>}
+      </>}
       <Spacer/>
       {!edit && <Button size="small" color="primary" onClick={() => toggleEdit(true)}><EditOutlinedIcon/></Button>}
       {edit && <Button size="small" color="primary" onClick={onSave}><SaveOutlinedIcon/></Button>}

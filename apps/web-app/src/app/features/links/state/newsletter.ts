@@ -1,5 +1,7 @@
 import {Link} from './link';
 
 export interface Newsletter {
-  links: Link[];
+  title?: string;
+  description?: string;
+  links?: Link[];
 }
