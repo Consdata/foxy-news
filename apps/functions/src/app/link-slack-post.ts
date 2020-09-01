@@ -1,4 +1,4 @@
-export function linkSlackPost(title: string, description: string, link: string, category: string, date: string, author: string, votes: number = 0, userVotes: string[] = []) {
+export function linkSlackPost(title: string, description: string, link: string, category: string, date: string, author: string, voteAction: boolean, votes: number = 0, userVotes: string[] = []) {
   return [
     {
       'type': 'section',
@@ -21,7 +21,7 @@ export function linkSlackPost(title: string, description: string, link: string, 
         'text': `<${link}|${link}>`
       }
     },
-    {
+    ...(voteAction ? [{
       'type': 'actions',
       'elements': [
         {
@@ -34,7 +34,7 @@ export function linkSlackPost(title: string, description: string, link: string, 
           'value': 'vote'
         }
       ]
-    },
+    }] : []),
     {
       'type': 'context',
       'elements': [

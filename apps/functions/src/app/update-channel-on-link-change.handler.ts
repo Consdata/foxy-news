@@ -1,6 +1,6 @@
-import * as nodeFetch from 'node-fetch';
 import {Link} from './link';
 import {linkSlackPost} from './link-slack-post';
+import {slackChatUpdateMessage} from './slack/slack-chat-update-message';
 
 export const updateChannelOnLinkChangeHandler = (
   functions: import('firebase-functions').FunctionBuilder,
@@ -8,15 +8,11 @@ export const updateChannelOnLinkChangeHandler = (
 ) => functions.firestore.document('team/{team}/field/{field}/link/{linkId}').onUpdate(
   async (change, context) => {
     const linkData = change.after.data() as Link;
-    await nodeFetch(`https://slack.com/api/chat.update`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${config.slack.bottoken}`,
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        channel: linkData.message.channel,
-        ts: linkData.message.timestamp,
+    await slackChatUpdateMessage(
+      config,
+      linkData.message.channel,
+      linkData.message.timestamp,
+      {
         'blocks': linkSlackPost(
           linkData.data.summary,
           linkData.data.description,
@@ -24,11 +20,12 @@ export const updateChannelOnLinkChangeHandler = (
           linkData.data.category,
           '',
           linkData.data.author,
+          true,
           linkData.votes,
           Object.keys(linkData.userVotes ?? {})
         )
-      })
-    });
+      }
+    )
   }
 );
 
