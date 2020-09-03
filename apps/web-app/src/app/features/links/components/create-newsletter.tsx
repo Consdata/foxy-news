@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
+import {CenteredPanel} from '../../ui-components/centered-panel';
 import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';
 import {NewsletterDraft} from '../state/newsletter-draft';
 import {publishNewsletterAction} from '../state/publish-newsletter/publish-newsletter.action';
@@ -14,14 +15,6 @@ const StyledCard = styled(Card)`
     width: 100%;
     margin-bottom: 16px;
 `;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 800px;
-  margin: 32px auto;
-`
 
 const TextField = styled(MaterialTextField)`
   margin-bottom: 8px;
@@ -43,7 +36,7 @@ const CreateNewsletterView = ({newsletter, removeFromDraft, publish}: ViewProps)
     ...draft,
     [key]: value
   });
-  return <Container>
+  return <CenteredPanel>
     <StyledCard>
       <CardContent>
         <TextField fullWidth
@@ -80,7 +73,7 @@ const CreateNewsletterView = ({newsletter, removeFromDraft, publish}: ViewProps)
         </Button>
       </CardActions>
     </StyledCard>)}
-  </Container>;
+  </CenteredPanel>;
 }
 
 interface ViewProps extends ConnectedProps<typeof connector> {

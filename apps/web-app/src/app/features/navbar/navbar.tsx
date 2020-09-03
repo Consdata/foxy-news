@@ -27,6 +27,7 @@ const NavbarView = ({onLogout}: ConnectedProps<typeof connector>) => (
             <div>Foxy</div>
             <MenuSpacer />
             <ActionButton color="inherit" component={Link} to="/links">Links</ActionButton>
+            <ActionButton color="inherit" component={Link} to="/newsletters">Newsletters</ActionButton>
             <Filler/>
             <ActionButton onClick={onLogout}>Logout</ActionButton>
         </Toolbar>

@@ -15,6 +15,10 @@ service cloud.firestore {
     match /team/{team}/field/{field}/link/{link} {
     	allow read, write: if isAuthentiacted(request);
     }
+    // allow read and newsletters
+    match /team/{team}/field/{field}/newsletter/{newsletter} {
+    	allow read: if true;
+    }
     // default deny
     match /{document=**} {
       allow read, write: if false;
