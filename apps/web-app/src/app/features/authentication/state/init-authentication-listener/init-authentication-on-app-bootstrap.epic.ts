@@ -1,6 +1,6 @@
 import {Epic} from 'redux-observable';
 import {Observable} from 'rxjs';
-import {first, switchMap} from 'rxjs/operators';
+import {first, switchMap, withLatestFrom} from 'rxjs/operators';
 import {appBootstrap} from '../../../../platform/app-bootstrap';
 import {AppState} from '../../../../state/app-state';
 import {firebaseApp} from '../../../firebase/firebase.app';
@@ -11,9 +11,10 @@ export const initAuthenticationOnAppBootstrapEpic: Epic<any, any, AppState> = (a
     .ofType(appBootstrap.type)
     .pipe(
         first(),
-        switchMap(_ => new Observable(subscriber =>
+        withLatestFrom(state$),
+        switchMap(([_, state]) => new Observable(subscriber =>
             firebaseApp.auth().onAuthStateChanged(
-                state => subscriber.next(state ? loggedIn({email: state.email}) : loggedOut())
+                auth => subscriber.next(auth ? loggedIn({email: auth.email}) : loggedOut(state.authentication.authenticated))
             )
         ))
     );
