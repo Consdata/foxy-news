@@ -1,8 +1,8 @@
 import {ChatbotInteraction} from './chatbot-interaction';
-import {PendingLink} from './pending-link';
+import {ChatbotLink} from './chatbot-link';
 
 export async function onAddLinkSubmission(pubsub: import('@google-cloud/pubsub').PubSub, interaction: ChatbotInteraction) {
-    const message: PendingLink = {
+    const message: ChatbotLink = {
         team: interaction.team.domain,
         user: interaction.user.username,
         field: 'tech',

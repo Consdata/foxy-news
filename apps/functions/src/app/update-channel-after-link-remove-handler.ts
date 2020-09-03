@@ -1,4 +1,4 @@
-import {Link} from './link';
+import {PendingLink} from '@foxy-news/links';
 import {linkSlackPost} from './link-slack-post';
 import {slackChatUpdateMessage} from './slack/slack-chat-update-message';
 
@@ -7,7 +7,7 @@ export const updateChannelAfterLinkRemoveHandler = (
   config: import('firebase-functions').config.Config
 ) => functions.firestore.document('team/{team}/field/{field}/link/{linkId}').onDelete(
   async (snapshot, context) => {
-    const linkData = snapshot.data() as Link;
+    const linkData = snapshot.data() as PendingLink;
     if (linkData.message.channel && linkData.message.timestamp) {
       await slackChatUpdateMessage(
         config,

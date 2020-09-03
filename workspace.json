@@ -189,6 +189,87 @@
           }
         }
       }
+    },
+    "links": {
+      "root": "libs/links",
+      "sourceRoot": "libs/links/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/links/tsconfig.lib.json",
+              "libs/links/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/links/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/links/jest.config.js",
+            "tsConfig": "libs/links/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "newsletters": {
+      "root": "libs/newsletters",
+      "sourceRoot": "libs/newsletters/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/newsletters/tsconfig.lib.json",
+              "libs/newsletters/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/newsletters/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/newsletters/jest.config.js",
+            "tsConfig": "libs/newsletters/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "infra-gcp": {
+      "root": "libs/infra-gcp",
+      "sourceRoot": "libs/infra-gcp/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/infra-gcp/tsconfig.lib.json",
+              "libs/infra-gcp/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/infra-gcp/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/infra-gcp/jest.config.js",
+            "tsConfig": "libs/infra-gcp/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

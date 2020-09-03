@@ -1,4 +1,4 @@
-import {Link} from './link';
+import {PendingLink} from '@foxy-news/links';
 import {linkSlackPost} from './link-slack-post';
 import {slackChatUpdateMessage} from './slack/slack-chat-update-message';
 
@@ -7,7 +7,7 @@ export const updateChannelOnLinkChangeHandler = (
   config: import('firebase-functions').config.Config
 ) => functions.firestore.document('team/{team}/field/{field}/link/{linkId}').onUpdate(
   async (change, context) => {
-    const linkData = change.after.data() as Link;
+    const linkData = change.after.data() as PendingLink;
     await slackChatUpdateMessage(
       config,
       linkData.message.channel,

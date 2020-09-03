@@ -1,9 +1,9 @@
-import {Link} from './link';
-import {Newsletter} from './newsletter';
+import {PendingLink} from '@foxy-news/links';
+import {NewsletterDraft} from './newsletter-draft';
 
 export interface LinksState {
-    links: Link[];
-    newsletter: Newsletter;
+    links: PendingLink[];
+    newsletter: NewsletterDraft;
     team: string;
     field: string;
 }

@@ -1,5 +1,6 @@
 import {Category} from '@foxy-news/categories';
-import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader, Tooltip} from '@material-ui/core';
+import {PendingLink} from '@foxy-news/links';
+import {Button as MaterialButton, Card, CardActions, CardContent, Tooltip} from '@material-ui/core';
 import ClearIcon from '@material-ui/icons/Clear';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
@@ -8,7 +9,6 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Link} from '../state/link';
 import {LinkEdit} from './link-edit';
 import {LinkSummary} from './link-summary';
 
@@ -25,7 +25,7 @@ const Spacer = styled.div`
   flex: 1;
 `;
 
-export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}: { link: Link, categories: Category[], onDelete: () => void, onAddToNewsletter: (newsletter: string) => void, onEdit: (link: Link) => void }) => {
+export const LinkCard = ({link, categories, onDelete, onAddToNewsletter, onEdit}: { link: PendingLink, categories: Category[], onDelete: () => void, onAddToNewsletter: (newsletter: string) => void, onEdit: (link: PendingLink) => void }) => {
   const [edit, setEdit] = useState(false);
   const [edited, setEdited] = useState(link);
   const onSave = () => {

@@ -4,6 +4,7 @@ import * as functions from 'firebase-functions';
 import {FunctionBuilder} from 'firebase-functions';
 import {addLinkHandler} from './app/add-link.handler';
 import {chatbotHandler} from './app/chatbot.handler';
+import {publishNewsletterHandler} from './app/publish-newsletter.handler';
 import {sendLinkToChannelHandler} from './app/send-link-to-channel.handler';
 import {storeUserVoteHandler} from './app/store-user-vote.handler';
 import {updateChannelAfterLinkRemoveHandler} from './app/update-channel-after-link-remove-handler';
@@ -25,3 +26,4 @@ export const sendLinkToChannel = sendLinkToChannelHandler(functionBuilder(), fun
 export const storeUserVote = storeUserVoteHandler(functionBuilder(), functions.config(), firebase);
 export const updateChannelOnLinkChange = updateChannelOnLinkChangeHandler(functionBuilder(), functions.config());
 export const updateChannelAfterLinkRemove = updateChannelAfterLinkRemoveHandler(functionBuilder(), functions.config());
+export const publishNewsletter = publishNewsletterHandler(functionBuilder(), firebase);

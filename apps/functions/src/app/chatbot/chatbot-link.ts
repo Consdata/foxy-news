@@ -1,4 +1,4 @@
-export interface PendingLink {
+export interface ChatbotLink {
     team: string;
     user: string;
     field: 'tech'|'biz';

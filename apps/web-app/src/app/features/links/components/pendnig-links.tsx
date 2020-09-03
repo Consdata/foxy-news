@@ -1,4 +1,5 @@
 import {categories} from '@foxy-news/categories';
+import {PendingLink} from '@foxy-news/links';
 import {Box, CircularProgress} from '@material-ui/core';
 import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
@@ -8,7 +9,6 @@ import {AppState} from '../../../state/app-state';
 import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';
 import {deleteLinkAction} from '../state/delete-link/delete-link.action';
 import {editLinkAction} from '../state/edit-link/edit-link.action';
-import {Link} from '../state/link';
 import {LinkCards} from './link-cards';
 import {NewsletterCart} from './newsletter-cart';
 
@@ -42,15 +42,15 @@ const connector = connect(
     newsletter: state.links.newsletter
   }),
   {
-    onDelete: (link: Link) => deleteLinkAction({link}),
-    onAddToNewsletter: (link: Link, newsletter: string) => addLinkToNewsletterAction({link, newsletter}),
-    onEdit: (link: Link) => editLinkAction({link}),
+    onDelete: (link: PendingLink) => deleteLinkAction({link}),
+    onAddToNewsletter: (link: PendingLink, newsletter: string) => addLinkToNewsletterAction({link, newsletter}),
+    onEdit: (link: PendingLink) => editLinkAction({link}),
   }
 );
 
 export const PendingLinks = connector(PendingLinksView);
 
-function sorted(array: Link[]): Link[] {
+function sorted(array: PendingLink[]): PendingLink[] {
   if (array) {
     const sorted = [...array];
     sorted.sort((a, b) => b.votes - a.votes);

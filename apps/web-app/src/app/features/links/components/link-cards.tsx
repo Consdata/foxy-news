@@ -1,8 +1,8 @@
 import {Category} from '@foxy-news/categories';
+import {PendingLink} from '@foxy-news/links';
 import {MenuItem, Select} from '@material-ui/core';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Link} from '../state/link';
 import {LinkCard} from './link-card';
 
 const LinkRow = styled.div`
@@ -21,7 +21,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-export const LinkCards = ({links, categories, onDelete, onAddToNewsletter, onEdit}: { links: Link[], categories: Category[], onDelete: (link: Link) => void, onAddToNewsletter: (link: Link, newsletter: string) => void, onEdit: (link: Link) => void }) => {
+export const LinkCards = ({links, categories, onDelete, onAddToNewsletter, onEdit}: { links: PendingLink[], categories: Category[], onDelete: (link: PendingLink) => void, onAddToNewsletter: (link: PendingLink, newsletter: string) => void, onEdit: (link: PendingLink) => void }) => {
   const [filter, setFilter] = useState('all');
   return <Container>
     <Categories value={filter} onChange={change => setFilter(change.target.value as string)}>

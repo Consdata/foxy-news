@@ -1,8 +1,8 @@
+import {PendingLink} from '@foxy-news/links';
 import {createAction} from '@reduxjs/toolkit';
-import {Link} from '../link';
 
 export interface LinksFetchedPayload {
-  links: Link[]
+  links: PendingLink[]
 }
 
 export const linksFetched = createAction<LinksFetchedPayload>('LinksFetched');

@@ -1,6 +1,6 @@
-import {Link} from '../link';
+import {PendingLink} from '@foxy-news/links';
 
 export interface AddLinkToNewsletterPayload {
-  link: Link;
+  link: PendingLink;
   newsletter: string;
 }

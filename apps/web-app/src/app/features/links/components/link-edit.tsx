@@ -1,14 +1,14 @@
 import {Category} from '@foxy-news/categories';
+import {PendingLink} from '@foxy-news/links';
 import {MenuItem, Select, TextField as MaterialTextField} from '@material-ui/core';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Link} from '../state/link';
 
 const TextField = styled(MaterialTextField)`
   margin-bottom: 8px;
 `;
 
-export const LinkEdit = ({link, onLinkChange, categories}: { link: Link, onLinkChange: (link: Link) => void, categories: Category[] }) => {
+export const LinkEdit = ({link, onLinkChange, categories}: { link: PendingLink, onLinkChange: (link: PendingLink) => void, categories: Category[] }) => {
   const [edited, setEdited] = useState(link);
   const onChange = (key: string, value: string) => {
     const newValue = {

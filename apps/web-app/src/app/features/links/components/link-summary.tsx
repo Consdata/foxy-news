@@ -1,8 +1,8 @@
+import {PendingLink} from '@foxy-news/links';
 import {Tooltip, Typography} from '@material-ui/core';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from '../state/link';
 
 const FavBar = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const Header = styled.div`
   margin-bottom: 16px;
 `;
 
-export const LinkSummary = ({link}: { link: Link }) => <>
+export const LinkSummary = ({link}: { link: PendingLink }) => <>
   <Header>
     <div>
       <Typography variant={'h6'}>{link.data.summary}</Typography>

@@ -1,3 +1,4 @@
+import {PendingLink} from '@foxy-news/links';
 import firebase from 'firebase';
 import {Epic} from 'redux-observable';
 import {Observable, of} from 'rxjs';
@@ -5,7 +6,6 @@ import {map, switchMap, withLatestFrom} from 'rxjs/operators';
 import {AppState} from '../../../../state/app-state';
 import {loggedIn} from '../../../authentication/state/login/logged-in.action';
 import {firebaseApp} from '../../../firebase/firebase.app';
-import {Link} from '../link';
 import {newsletterDraftFetched} from './newsletter-draft-fetched';
 
 const firestore = firebaseApp.firestore();
@@ -26,7 +26,7 @@ export const fetchNewsletterDraftEpic: Epic<ReturnType<typeof loggedIn>, any, Ap
       }
     }),
     map(messages => newsletterDraftFetched({
-      links: messages.docs.map(doc => (<Link>{
+      links: messages.docs.map(doc => (<PendingLink>{
         id: doc.id,
         ...doc.data()
       }))

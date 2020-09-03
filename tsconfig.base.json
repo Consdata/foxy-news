@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@foxy-news/categories": ["libs/categories/src/index.ts"]
+      "@foxy-news/categories": ["libs/categories/src/index.ts"],
+      "@foxy-news/links": ["libs/links/src/index.ts"],
+      "@foxy-news/newsletters": ["libs/newsletters/src/index.ts"],
+      "@foxy-news/infra-gcp": ["libs/infra-gcp/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

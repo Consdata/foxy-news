@@ -1,5 +1,5 @@
-import {Link} from '../link';
+import {PendingLink} from '@foxy-news/links';
 
 export interface DeleteLinkPayload {
-  link: Link;
+  link: PendingLink;
 }

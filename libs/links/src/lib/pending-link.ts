@@ -1,4 +1,4 @@
-export interface Link {
+export interface PendingLink {
   id: string;
   field: string;
   data: {
