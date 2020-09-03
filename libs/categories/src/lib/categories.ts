@@ -1,7 +1,4 @@
-export interface Category {
-  key: string;
-  label: string;
-}
+import {Category} from './category';
 
 export const categories: Category[] = [
   {key: 'devops', label: 'DevOps'},
@@ -12,5 +9,6 @@ export const categories: Category[] = [
   {key: 'uiux', label: 'Ui/Ux'},
   {key: 'linux', label: 'Linux'},
   {key: 'security', label: 'Security'},
+  {key: 'storage', label: 'Storage'},
   {key: 'misc', label: 'Miscellaneous'},
 ];

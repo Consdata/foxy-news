@@ -1,7 +1,7 @@
+import {Category} from '@foxy-news/categories';
 import {MenuItem, Select} from '@material-ui/core';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Category} from '../state/category';
 import {Link} from '../state/link';
 import {LinkCard} from './link-card';
 

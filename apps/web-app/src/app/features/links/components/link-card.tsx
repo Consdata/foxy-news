@@ -1,3 +1,4 @@
+import {Category} from '@foxy-news/categories';
 import {Button as MaterialButton, Card, CardActions, CardContent, CardHeader, Tooltip} from '@material-ui/core';
 import ClearIcon from '@material-ui/icons/Clear';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
@@ -7,7 +8,6 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Category} from '../state/category';
 import {Link} from '../state/link';
 import {LinkEdit} from './link-edit';
 import {LinkSummary} from './link-summary';

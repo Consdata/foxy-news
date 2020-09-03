@@ -1,3 +1,4 @@
+import {categories} from '@foxy-news/categories';
 import {Box, CircularProgress} from '@material-ui/core';
 import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
@@ -5,7 +6,6 @@ import {useHistory} from 'react-router';
 import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
 import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';
-import {categories} from '../state/category';
 import {deleteLinkAction} from '../state/delete-link/delete-link.action';
 import {editLinkAction} from '../state/edit-link/edit-link.action';
 import {Link} from '../state/link';
@@ -29,7 +29,7 @@ const PendingLinksView = ({links, newsletter, onDelete, onAddToNewsletter, onEdi
                          onDelete={onDelete}
                          onAddToNewsletter={onAddToNewsletter}
                          onEdit={onEdit}/>}
-    {newsletter?.links?.length > 0 && <NewsletterCart onClick={() => history.push('/links/newsletter')} />}
+    {newsletter?.links?.length > 0 && <NewsletterCart onClick={() => history.push('/links/newsletter')}/>}
   </View>;
 };
 
