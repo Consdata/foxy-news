@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "foxy-news"
+    "default": "foxy-news",
+    "dev": "foxy-news-dev"
   }
 }
