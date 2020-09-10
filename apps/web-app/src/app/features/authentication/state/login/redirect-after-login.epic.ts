@@ -11,7 +11,7 @@ export const redirectAfterLogin: Epic<any, any, AppState> = (action$, state$) =>
     withLatestFrom(state$),
     switchMap(([action, state]) => {
       if (state.router.location.pathname === '/login') {
-        return of(replace('/inbox'));
+        return of(replace('/links'));
       } else {
         return of();
       }
