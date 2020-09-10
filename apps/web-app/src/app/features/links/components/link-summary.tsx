@@ -37,7 +37,7 @@ export const LinkSummary = ({link}: { link: PendingLink }) => <>
     </Typography>
   </div>
   <div>
-    <Tooltip title={Object.keys(link.userVotes).join(', ')}>
+    <Tooltip title={link.userVotes ? Object.keys(link.userVotes).join(', ') : 'no votes'}>
       <FavBar>
         <FavoriteBorderOutlinedIcon color="secondary"/> &nbsp; {link.votes}
       </FavBar>
