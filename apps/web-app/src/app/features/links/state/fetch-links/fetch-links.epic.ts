@@ -15,7 +15,6 @@ export const fetchLinksEpic: Epic<ReturnType<typeof loggedIn>, any, AppState> = 
     state$.pipe(map(state => state.authentication?.team), distinctUntilChanged()),
     state$.pipe(map(state => state.fields?.field?.id), distinctUntilChanged())
   ]).pipe(
-    tap(console.log),
     switchMap(([team, field]) => {
       if (team && field) {
         return new Observable<firebase.firestore.QuerySnapshot>(subscriber => {

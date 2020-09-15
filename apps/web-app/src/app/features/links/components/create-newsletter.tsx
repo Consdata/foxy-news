@@ -32,7 +32,11 @@ const emptyDraft = {
 };
 
 const CreateNewsletterView = ({newsletter, links, removeFromDraft, publish}: ViewProps) => {
-  const [draft, setDraft] = useState(emptyDraft);
+  const [draft, setDraft] = useState({
+    title: newsletter?.title || '',
+    description: newsletter?.description || '',
+    date: newsletter?.date || ''
+  });
   const onChange = (key: keyof NewsletterDraft, value: string) => setDraft({
     ...draft,
     [key]: value
@@ -52,7 +56,7 @@ const CreateNewsletterView = ({newsletter, links, removeFromDraft, publish}: Vie
         <TextField fullWidth
                    value={draft.date}
                    onChange={event => onChange('date', event.target.value)}
-                   placeholder={'Publication date, eg. 2020/08/31'}/>
+                   placeholder={'Newsletter issue number/description, eg. 2020/08/31'}/>
       </CardContent>
       <CardActions>
         <Button size="small"
@@ -83,7 +87,7 @@ interface ViewProps extends ConnectedProps<typeof connector> {
 const connector = connect(
   (state: AppState) => ({
     newsletter: state.links.newsletter,
-    links: sorted(state.links.newsletter.links ?? [], (a, b) => b.votes - a.votes),
+    links:  sorted(state.links?.newsletter?.links ?? [], (a, b) => b.votes - a.votes),
   }),
   {
     removeFromDraft: (link: PendingLink) => addLinkToNewsletterAction({link, newsletter: ''}),
