@@ -1,8 +1,8 @@
-import {ChatbotInteraction} from './chatbot-interaction';
+import {SlackInteractionRequest} from '../slack/slack-interaction-request';
 import {FieldMap} from './field-map';
 import {PendingVote} from './pending-vote';
 
-export async function onVote(pubsub: import('@google-cloud/pubsub').PubSub, interaction: ChatbotInteraction, fieldMap: FieldMap) {
+export async function onVote(pubsub: import('@google-cloud/pubsub').PubSub, interaction: SlackInteractionRequest, fieldMap: FieldMap) {
   const message: PendingVote = {
     team: interaction.team.domain,
     user: interaction.user.username,
@@ -14,5 +14,6 @@ export async function onVote(pubsub: import('@google-cloud/pubsub').PubSub, inte
       userId: interaction.user.id
     }
   };
+  console.log(JSON.stringify({interaction, message, fieldMap}))
   await pubsub.topic('pending-votes').publish(Buffer.from(JSON.stringify(message)));
 }

@@ -1,4 +1,4 @@
-export interface SlackInteractionRequest<CallbackIds> {
+export interface SlackInteractionRequest {
     type: 'shortcut' | 'view_submission' | 'block_actions' | string;
     token: string;
     action_ts: string;
@@ -11,6 +11,6 @@ export interface SlackInteractionRequest<CallbackIds> {
         username: string;
         team_id: string;
     };
-    callback_id: CallbackIds | string;
+    callback_id: string;
     trigger_id: string;
 }

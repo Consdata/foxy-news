@@ -1,4 +1,4 @@
-import {categories} from '@foxy-news/categories';
+import {categoriesTech} from '@foxy-news/categories';
 import {Card, CardContent, CircularProgress, Typography} from '@material-ui/core';
 import React, {useEffect} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
@@ -58,7 +58,7 @@ const NewslettersView = ({newsletters, fetchNewsletters}: ViewProps) => {
           <LinkLink><a href={link.link}>{link.link}</a></LinkLink>
           <LinkCategory>
             <Typography variant={'caption'}>
-              {categories.find(category => category.key === link.category).label}
+              {categoriesTech.find(category => category.key === link.category).label}
             </Typography>
           </LinkCategory>
         </LinkRow>)}

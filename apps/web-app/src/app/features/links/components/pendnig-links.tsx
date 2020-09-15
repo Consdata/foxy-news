@@ -1,4 +1,4 @@
-import {categories} from '@foxy-news/categories';
+import {categoriesTech} from '@foxy-news/categories';
 import {PendingLink} from '@foxy-news/links';
 import {Box, CircularProgress} from '@material-ui/core';
 import React from 'react';
@@ -18,7 +18,7 @@ const PendingLinksView = ({links, newsletter, onDelete, onAddToNewsletter, onEdi
   return <CenteredPanel>
     {!links && <CircularProgress size={50}/>}
     {links && <LinkCards links={links}
-                         categories={categories}
+                         categories={categoriesTech}
                          onDelete={onDelete}
                          onAddToNewsletter={onAddToNewsletter}
                          onEdit={onEdit}/>}

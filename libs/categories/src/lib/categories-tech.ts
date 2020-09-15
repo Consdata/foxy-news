@@ -1,6 +1,6 @@
 import {Category} from './category';
 
-export const categories: Category[] = [
+export const categoriesTech: Category[] = [
   {key: 'devops', label: 'DevOps'},
   {key: 'frontend', label: 'Frontend'},
   {key: 'webdev', label: 'WebDev'},
