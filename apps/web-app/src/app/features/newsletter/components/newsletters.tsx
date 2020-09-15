@@ -57,7 +57,7 @@ const NewslettersView = ({newsletters, fetchNewsletters, field}: ViewProps) => {
           <LinkLink><a href={link.link}>{link.link}</a></LinkLink>
           <LinkCategory>
             <Typography variant={'caption'}>
-              {categoriesTech.find(category => category.key === link.category).label}
+              {categoriesTech.find(category => category.key === link.category)?.label}
             </Typography>
           </LinkCategory>
         </LinkRow>)}

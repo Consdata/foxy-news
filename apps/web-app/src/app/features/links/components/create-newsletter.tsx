@@ -56,7 +56,7 @@ const CreateNewsletterView = ({newsletter, links, removeFromDraft, publish}: Vie
         <TextField fullWidth
                    value={draft.date}
                    onChange={event => onChange('date', event.target.value)}
-                   placeholder={'Newsletter issue number/description, eg. 2020/08/31'}/>
+                   placeholder={'Publication date, eg. 2020/08/31'}/>
       </CardContent>
       <CardActions>
         <Button size="small"
