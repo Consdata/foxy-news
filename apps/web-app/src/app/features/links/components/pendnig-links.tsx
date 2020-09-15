@@ -5,6 +5,7 @@ import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {useHistory} from 'react-router';
 import {AppState} from '../../../state/app-state';
+import {sorted} from '../../../util/sorted';
 import {CenteredPanel} from '../../ui-components/centered-panel';
 import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';
 import {deleteLinkAction} from '../state/delete-link/delete-link.action';
@@ -30,7 +31,7 @@ interface ViewProps extends ConnectedProps<typeof connector> {
 
 const connector = connect(
   (state: AppState) => ({
-    links: sorted(state.links.links),
+    links: sorted(state.links.links, (a, b) => b.votes - a.votes),
     newsletter: state.links.newsletter
   }),
   {
@@ -41,13 +42,3 @@ const connector = connect(
 );
 
 export const PendingLinks = connector(PendingLinksView);
-
-function sorted(array: PendingLink[]): PendingLink[] {
-  if (array) {
-    const sorted = [...array];
-    sorted.sort((a, b) => b.votes - a.votes);
-    return sorted;
-  } else {
-    return array;
-  }
-}

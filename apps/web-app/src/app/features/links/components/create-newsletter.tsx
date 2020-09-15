@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
+import {sorted} from '../../../util/sorted';
 import {CenteredPanel} from '../../ui-components/centered-panel';
 import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';
 import {NewsletterDraft} from '../state/newsletter-draft';
@@ -30,7 +31,7 @@ const emptyDraft = {
   date: ''
 };
 
-const CreateNewsletterView = ({newsletter, removeFromDraft, publish}: ViewProps) => {
+const CreateNewsletterView = ({newsletter, links, removeFromDraft, publish}: ViewProps) => {
   const [draft, setDraft] = useState(emptyDraft);
   const onChange = (key: keyof NewsletterDraft, value: string) => setDraft({
     ...draft,
@@ -62,7 +63,7 @@ const CreateNewsletterView = ({newsletter, removeFromDraft, publish}: ViewProps)
       </CardActions>
     </StyledCard>
     <hr/>
-    {newsletter?.links?.map(link => <StyledCard key={link.id}>
+    {links.map(link => <StyledCard key={link.id}>
       <CardContent>
         <LinkSummary link={link}/>
       </CardContent>
@@ -81,7 +82,8 @@ interface ViewProps extends ConnectedProps<typeof connector> {
 
 const connector = connect(
   (state: AppState) => ({
-    newsletter: state.links.newsletter
+    newsletter: state.links.newsletter,
+    links: sorted(state.links.newsletter.links ?? [], (a, b) => b.votes - a.votes),
   }),
   {
     removeFromDraft: (link: PendingLink) => addLinkToNewsletterAction({link, newsletter: ''}),
