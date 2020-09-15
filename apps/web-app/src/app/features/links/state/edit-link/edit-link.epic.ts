@@ -11,7 +11,7 @@ export const editLinkEpic: Epic<ReturnType<typeof editLinkAction>, any, AppState
   action$.ofType(editLinkAction.type).pipe(
     withLatestFrom(state$),
     switchMap(([action, state]) =>
-      from(firestore.collection(`team/${state.links.team}/field/${state.links.field}/link`)
+      from(firestore.collection(`team/${state.authentication.team}/field/${state.fields.field.id}/link`)
         .doc(action.payload.link.id)
         .update({
           'data.category': action.payload.link.data.category,

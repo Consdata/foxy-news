@@ -1,6 +1,7 @@
 import {AuthenticationState} from './authentication-state';
 
 export const authenticationStateInitial: AuthenticationState = {
-    authenticated: undefined,
-    email: undefined,
+  authenticated: undefined,
+  email: undefined,
+  team: 'consdata'
 };

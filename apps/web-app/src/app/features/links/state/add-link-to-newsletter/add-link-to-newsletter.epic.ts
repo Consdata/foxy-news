@@ -12,7 +12,7 @@ export const addLinkToNewsletterEpic: Epic<ReturnType<typeof addLinkToNewsletter
     withLatestFrom(state$),
     switchMap(([action, state]) => {
       const linkDoc = firestore
-        .collection(`team/${state.links.team}/field/${state.links.field}/link`)
+        .collection(`team/${state.authentication.team}/field/${state.fields.field.id}/link`)
         .doc(action.payload.link.id);
       return from(linkDoc.update({
         newsletter: action.payload.newsletter

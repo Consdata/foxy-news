@@ -1,10 +1,9 @@
 import {categoriesTech} from '@foxy-news/categories';
 import {PendingLink} from '@foxy-news/links';
-import {Box, CircularProgress} from '@material-ui/core';
+import {CircularProgress} from '@material-ui/core';
 import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {useHistory} from 'react-router';
-import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
 import {CenteredPanel} from '../../ui-components/centered-panel';
 import {addLinkToNewsletterAction} from '../state/add-link-to-newsletter/add-link-to-newsletter.action';

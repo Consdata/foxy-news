@@ -4,6 +4,4 @@ import {NewsletterDraft} from './newsletter-draft';
 export interface LinksState {
     links: PendingLink[];
     newsletter: NewsletterDraft;
-    team: string;
-    field: string;
 }

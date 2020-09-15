@@ -2,10 +2,11 @@ import {categoriesTech} from '@foxy-news/categories';
 import {Card, CardContent, CircularProgress, Typography} from '@material-ui/core';
 import React, {useEffect} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
+import {useParams} from 'react-router';
 import styled from 'styled-components';
 import {AppState} from '../../../state/app-state';
 import {CenteredPanel} from '../../ui-components/centered-panel';
-import {fetchNewsletters} from '../state/fetch-newsletters/fetch-newsletters';
+import {fetchNewslettersAction} from '../state/fetch-newsletters/fetch-newsletters.action';
 
 const StyledCard = styled(Card)`
   margin-bottom: 16px;
@@ -37,12 +38,10 @@ const LinkCategory = styled.div`
   margin-left: 8px;
 `;
 
-const NewslettersView = ({newsletters, fetchNewsletters}: ViewProps) => {
+const NewslettersView = ({newsletters, fetchNewsletters, field}: ViewProps) => {
   useEffect(() => {
-    if (!newsletters) {
-      fetchNewsletters();
-    }
-  });
+    fetchNewsletters(field);
+  }, [field]);
   return <CenteredPanel>
     {!newsletters && <CircularProgress/>}
     {newsletters && newsletters.map(newsletter => <StyledCard key={newsletter.date}>
@@ -72,10 +71,11 @@ interface ViewProps extends ConnectedProps<typeof connector> {
 
 const connector = connect(
   (state: AppState) => ({
-    newsletters: state.newsletters.newsletters
+    newsletters: state.newsletters.newsletters,
+    field: state.fields.field.id
   }),
   {
-    fetchNewsletters: fetchNewsletters
+    fetchNewsletters: (field: string) => fetchNewslettersAction({field})
   }
 );
 

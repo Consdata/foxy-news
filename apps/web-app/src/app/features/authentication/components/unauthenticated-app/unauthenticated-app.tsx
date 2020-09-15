@@ -11,7 +11,6 @@ export const UnauthenticatedAppView = ({authenticated}: ViewProps) => <div>
   {authenticated === true && <Redirect to='/'/>}
   {authenticated === false && <Switch>
     <Route path='/login' component={Login}/>
-    <Route path='/newsletters' component={Newsletters}/>
     <Redirect to='/login'/>
   </Switch>}
 </div>;
