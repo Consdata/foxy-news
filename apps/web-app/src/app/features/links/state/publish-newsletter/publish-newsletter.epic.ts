@@ -17,7 +17,7 @@ export const publishNewsletterEpic: Epic<ReturnType<typeof publishNewsletterActi
           title: action.payload.title,
           date: action.payload.date,
           newsletter: 'current',
-          field: state.links.field,
+          field: state.fields.field.id,
           team: state.authentication.team
         } as PublishNewsletterRequest)
       ).pipe(
