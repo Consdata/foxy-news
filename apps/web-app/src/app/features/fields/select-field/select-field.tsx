@@ -13,7 +13,9 @@ export const SelectFieldView = ({fields, field, selectField}: ViewProps) => {
   const onOpen = event => setAnchorEl(event.currentTarget);
   const onElementSelect = (field: Field) => {
     setAnchorEl(null);
-    selectField(field);
+    if (field?.id && field?.name) {
+      selectField(field);
+    }
   };
   return <>
     <Button color="inherit" onClick={onOpen}>
