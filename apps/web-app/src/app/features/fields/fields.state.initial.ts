@@ -1,6 +1,9 @@
 import {FieldsState} from './fields.state';
 
-const fieldId = localStorage?.getItem('foxyNews.lastField') ?? 'tech';
+let fieldId = localStorage?.getItem('foxyNews.lastField') ?? 'tech';
+if (fieldId !== 'tech' && fieldId !== 'biz') {
+  fieldId = 'tech';
+}
 
 const fieldsById = {
   'tech': {
