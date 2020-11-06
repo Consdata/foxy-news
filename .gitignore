@@ -35,6 +35,7 @@ yarn-error.log
 testem.log
 /typings
 .local.env
+.local.env.prod
 .firebase
 firebase-debug.log
 
