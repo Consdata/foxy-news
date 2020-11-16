@@ -1,8 +1,7 @@
-import {PendingLink} from '@foxy-news/links';
+import {ArchivedLink, PendingLink} from '@foxy-news/links';
 import {Epic} from 'redux-observable';
 import {from, of} from 'rxjs';
 import {mergeMap, switchMap, withLatestFrom} from 'rxjs/operators';
-import {ArchivedLink} from '../../../../../../../../libs/links/src/lib/archived-link';
 import {AppState} from '../../../../state/app-state';
 import {firebaseApp} from '../../../firebase/firebase.app';
 import {deleteLinkAction} from './delete-link.action';
@@ -17,7 +16,7 @@ export const deleteLinkEpic: Epic<ReturnType<typeof deleteLinkAction>, any, AppS
         const linkDoc = firestore.collection(`/team/${state.authentication.team}/field/${state.fields.field.id}/link`).doc(action.payload.link.id);
         const link = await trn.get(linkDoc);
         const archivedLinks = firestore.collection(`/team/${state.authentication.team}/field/${state.fields.field.id}/archivedLink`).doc();
-        const archivedLink: ArchivedLink = {...link.data() as PendingLink, archiveReason: 'removed'};
+        const archivedLink: ArchivedLink = {...link.data() as PendingLink, archivingReason: 'removed'};
         trn.set(archivedLinks, archivedLink)
           .delete(linkDoc)
       }));

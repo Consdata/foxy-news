@@ -1,6 +1,5 @@
-import {PendingLink, PublishNewsletterRequest} from '@foxy-news/links';
+import {ArchivedLink, PendingLink, PublishNewsletterRequest} from '@foxy-news/links';
 import {Newsletter} from '@foxy-news/newsletters';
-import {ArchivedLink} from '../../../../libs/links/src/lib/archived-link';
 
 export const publishNewsletterHandler = (
   functions: import('firebase-functions').FunctionBuilder,
@@ -32,7 +31,7 @@ export const publishNewsletterHandler = (
       trn.create(newsletterCollection.doc(), newsletter);
       links.forEach(link => {
         trn.delete(linksCollection.doc(link.id));
-        const archivedLink: ArchivedLink = {...link.data() as PendingLink, archiveReason: 'newsletter'};
+        const archivedLink: ArchivedLink = {...link.data() as PendingLink, archivingReason: 'newsletter'};
         trn.create(archivedLinksCollection.doc(), archivedLink);
       });
     });
