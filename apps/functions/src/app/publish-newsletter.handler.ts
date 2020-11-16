@@ -31,7 +31,13 @@ export const publishNewsletterHandler = (
       trn.create(newsletterCollection.doc(), newsletter);
       links.forEach(link => {
         trn.delete(linksCollection.doc(link.id));
-        const archivedLink: ArchivedLink = {...link.data() as PendingLink, archivingReason: 'newsletter'};
+        const archivedLink: ArchivedLink = {
+          ...link.data() as PendingLink,
+          archivization: {
+            reason: 'newsletter',
+            timestamp: Date.now(),
+          }
+        };
         trn.create(archivedLinksCollection.doc(), archivedLink);
       });
     });

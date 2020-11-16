@@ -16,7 +16,13 @@ export const deleteLinkEpic: Epic<ReturnType<typeof deleteLinkAction>, any, AppS
         const linkDoc = firestore.collection(`/team/${state.authentication.team}/field/${state.fields.field.id}/link`).doc(action.payload.link.id);
         const link = await trn.get(linkDoc);
         const archivedLinks = firestore.collection(`/team/${state.authentication.team}/field/${state.fields.field.id}/archivedLink`).doc();
-        const archivedLink: ArchivedLink = {...link.data() as PendingLink, archivingReason: 'removed'};
+        const archivedLink: ArchivedLink = {
+          ...link.data() as PendingLink,
+          archivization: {
+            reason: 'removed',
+            timestamp: Date.now(),
+          }
+        };
         trn.set(archivedLinks, archivedLink)
           .delete(linkDoc)
       }));
