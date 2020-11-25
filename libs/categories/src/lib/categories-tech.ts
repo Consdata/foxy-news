@@ -5,7 +5,7 @@ export const categoriesTech: Category[] = [
   {key: 'frontend', label: 'Frontend'},
   {key: 'webdev', label: 'WebDev'},
   {key: 'cloud', label: 'Cloud'},
-  {key: 'craftsmanship', label: 'Crsafsmanship'},
+  {key: 'craftsmanship', label: 'Craftsmanship'},
   {key: 'uiux', label: 'Ui/Ux'},
   {key: 'linux', label: 'Linux'},
   {key: 'security', label: 'Security'},
