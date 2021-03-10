@@ -11,4 +11,5 @@ export const categoriesTech: Category[] = [
   {key: 'security', label: 'Security'},
   {key: 'storage', label: 'Storage'},
   {key: 'misc', label: 'Miscellaneous'},
+  {key: 'integration', label: 'Integration'},
 ];
