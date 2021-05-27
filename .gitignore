@@ -37,6 +37,7 @@ testem.log
 .local.env
 .local.env.prod
 .firebase
+.firebaserc
 firebase-debug.log
 
 # System Files
