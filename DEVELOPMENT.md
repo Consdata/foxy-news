@@ -14,6 +14,6 @@ firebase functions:config:set foxy.channel-biz="WEBAPP_URL"
 
 - `firebase deploy`
 - create .local.env file with firebase connection details
-    * Config values will be provided in web app
-      [Analytics Dashboard](https://console.firebase.google.com/project/project-228620/analytics/)
+    * Config values will be provided in web app Analytics Dashboard:
+      `https://console.firebase.google.com/project/{project-id}/analytics/`
 - run locally with yarn
