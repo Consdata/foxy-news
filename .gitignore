@@ -37,7 +37,9 @@ testem.log
 .local.env
 .local.env.prod
 .firebase
+.firebaserc
 firebase-debug.log
+.runtimeconfig.json
 
 # System Files
 .DS_Store
