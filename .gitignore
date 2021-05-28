@@ -39,6 +39,7 @@ testem.log
 .firebase
 .firebaserc
 firebase-debug.log
+.runtimeconfig.json
 
 # System Files
 .DS_Store
