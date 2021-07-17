@@ -62,6 +62,20 @@ export function newsletterModalView(callbackId: string, categories: { key: strin
           text: 'Description',
           emoji: true
         }
+      },
+      {
+        type: 'input',
+        block_id: 'time_bound',
+        element: {
+          type: 'plain_text_input',
+          action_id: 'description',
+          multiline: true
+        },
+        label: {
+          type: 'plain_text',
+          text: 'Time bound',
+          emoji: true
+        }
       }
     ]
   };
