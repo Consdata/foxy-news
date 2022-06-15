@@ -86,7 +86,7 @@
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.20.6",
-    "eslint-plugin-react-hooks": "4.1.0",
+    "eslint-plugin-react-hooks": "4.6.0",
     "generate-package-json-webpack-plugin": "^1.1.2",
     "jest": "26.4.2",
     "prettier": "2.2.1",
