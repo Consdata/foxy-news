@@ -39,7 +39,7 @@
     "firebase": "^7.19.0",
     "firebase-admin": "^9.1.1",
     "firebase-functions": "^3.11.0",
-    "node-fetch": "2.6.1",
+    "node-fetch": "3.2.10",
     "raw-body": "^2.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
